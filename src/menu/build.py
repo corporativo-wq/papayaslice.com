@@ -89,7 +89,7 @@ MENU = [
  {"id":"bebidas","kind":"drinks","title":b("Bebidas","Drinks"),"glass":b(" copa"," glass"),"bottle":b(" botella"," bottle"),
   "groups":[
    {"n":b("Spritzs & sangría","Spritzes & sangria"),"items":[
-     {"n":"Aperol spritz","p":150},{"n":"Campari spritz","p":150},{"n":"Hugo spritz","p":180},{"n":"Toronja spritz","d":b("Toronja, prosecco y soda","Grapefruit, prosecco and soda"),"p":170,"nuevo":True},{"n":b("Sangría tinta","Red sangria"),"p":175}]},
+     {"n":"Aperol spritz","p":150},{"n":"Campari spritz","p":150},{"n":"Hugo spritz","p":180},{"n":"Toronja spritz","d":b("Toronja, prosecco y soda","Grapefruit, prosecco and soda"),"p":175,"nuevo":True},{"n":b("Sangría tinta","Red sangria"),"p":175}]},
    {"n":b("Bebidas suaves","Soft drinks"),"items":[
      {"n":b("Cerveza","Beer"),"d":"Heineken, Indio","p":70},
      {"n":b("Limonadas","Lemonades"),"d":b("Limón, jamaica, mango","Lime, hibiscus, mango"),"p":75},

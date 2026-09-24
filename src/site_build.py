@@ -83,7 +83,7 @@ for f in os.listdir('img'):
         if f.endswith('.jpg'):
             im=Image.open(p).convert('RGB'); im.thumbnail((900,1350)); b=io.BytesIO(); im.save(b,'JPEG',quality=76,optimize=True,progressive=True)
         elif f.endswith('.webp'):
-            im=Image.open(p); b=io.BytesIO(); im.save(b,'WEBP',quality=78,method=6)
+            continue  # WebP ya viene optimizado; la portada debe quedar en alta definición
         else: continue
         if len(b.getvalue())<s0: open(p,'wb').write(b.getvalue())
     except Exception as e: print('skip',f,e)
