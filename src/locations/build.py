@@ -247,7 +247,7 @@ def page(key):
     </div>
     <div>
       <h4 data-es>Contacto</h4><h4 data-en hidden>Contact</h4>
-      <a data-ev="whatsapp" data-branch="{slug}" href="{WATI}" target="_blank" rel="noopener">WhatsApp</a>
+      <a data-ev="whatsapp" data-branch="{slug}" href="{b['wa']}" target="_blank" rel="noopener">WhatsApp</a>
       <a href="https://instagram.com/papayaslicemx" target="_blank" rel="noopener">Instagram</a>
       <a data-ev="phone" data-branch="{slug}" href="{tel_href}">{e(b['tel'])}</a>
     </div>

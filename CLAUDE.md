@@ -23,5 +23,5 @@ se generan desde `src/`.
 
 ## Datos reales
 - WhatsApp: +52 984 179 8683. Instagram: @papayaslicemx.
-- Av. 38 (Playa del Carmen): Calle 38 entre 5a Av. y Calle Flamingos, Locales Miranda #4. 13:00–00:00 todos los días. Rappi 1930135819. Uber Eats store WmePdADXWy-KCQKVOP7y5Q.
-- Náder (Cancún): Av. Carlos Náder 44, Centro. Lun cerrado; Mar–Mié y Dom 14:00–22:00; Jue–Sáb 14:00–23:00. Rappi 1930378884. Sin Uber Eats.
+- Av. 38 (Playa del Carmen): Calle 38 entre 5a Av. y Calle Flamingos, Locales Miranda #4. 13:00–23:30 todos los días (cocina). Rappi 1930135819. Uber Eats store WmePdADXWy-KCQKVOP7y5Q.
+- Náder (Cancún): Av. Carlos Náder 44, Centro. Lun cerrado; Mar–Mié y Dom 14:00–22:00; Jue–Sáb 14:00–23:00. Rappi 1930378884. Sin Uber Eats. WhatsApp reservas Náder: +52 998 174 6115.
