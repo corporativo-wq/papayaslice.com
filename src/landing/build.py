@@ -15,12 +15,12 @@ D={
   {"img":"panacotta","cover":True,"anchor":"postres","kind":b("Postre","Dessert"),"n":b("Panacotta & mango","Panna cotta & mango"),"d":b("Nata premium, coulis de mango de Colima","Premium cream, Colima mango coulis"),"p":120},
  ],
  "branches":{
-  "38":{"name":"Av. 38","city":"Playa del Carmen","label":b("Playa del Carmen · Av. 38","Playa del Carmen · Av. 38"),
+  "38":{"page":"playa-del-carmen","name":"Av. 38","city":"Playa del Carmen","label":b("Playa del Carmen · Av. 38","Playa del Carmen · Av. 38"),
         "addr":b("Calle 38 entre 5a Av. y Calle Flamingos, Locales Miranda #4, Centro, Playa del Carmen","Calle 38 between 5th Ave. and Calle Flamingos, Locales Miranda #4, Centro, Playa del Carmen"),"tel":"+52 984 803 5648",
         "maps":"https://www.google.com/maps/search/?api=1&query=Papaya%20Slice%20Playa%20del%20Carmen&query_place_id=ChIJNSS3HGtDTo8RPtVX0R9kA34","wa":WATI,
         "rappi":"https://www.rappi.com.mx/restaurantes/1930135819-papaya-slice-mx","uber":"https://www.ubereats.com/mx/store/papaya-slice-mx-riviera-maya/WmePdADXWy-KCQKVOP7y5Q",
         "hours":{"default":["13:00","24:00"]},"rating":"4.7","reviews":"1,002","todo":None},
-  "nader":{"name":"Náder","city":"Cancún","label":b("Cancún · Av. Náder","Cancún · Av. Náder"),
+  "nader":{"page":"cancun","name":"Náder","city":"Cancún","label":b("Cancún · Av. Náder","Cancún · Av. Náder"),
         "addr":b("Av. Carlos Náder 44, Centro, Cancún","Av. Carlos Náder 44, Centro, Cancún"),"tel":"+52 998 174 6115",
         "maps":"https://www.google.com/maps/search/?api=1&query=Papaya%20Slice%20Nader%20Cancun&query_place_id=ChIJP8gEC1ktTI8RI6subVZflxw","wa":WATI,
         "rappi":"https://www.rappi.com.mx/restaurantes/1930378884-papaya-slice-mx","uber":None,
@@ -33,6 +33,7 @@ D={
   {"t":b("Por rebanada puedes probar de todo. Fuimos cinco y pedimos ocho distintas.","By the slice you can try everything. Five of us ordered eight different ones."),"a":"Reseña de ejemplo"},
  ],
 }
+# --- build ---
 imgs=json.load(open('imgs.json')); imgs.pop('aperol2',None)
 h=open('landing_template.html').read()
 h=h.replace('__LOGO__',imgs.pop('logo')).replace('__GIRL__',imgs.pop('girl')).replace('__LOGOW__',imgs.pop('logo_w')).replace('__LOGOCREAM__',imgs.pop('logo_cream')).replace('__PIZZA__',imgs['hero_png']).replace('__TORONJA__',imgs.pop('toronja')).replace('__APEROL1__',imgs.pop('aperol1')).replace('__HUGO__',imgs.pop('hugo'))

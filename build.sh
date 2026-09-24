@@ -5,5 +5,6 @@ cd "$(dirname "$0")"
 mkdir -p build
 ( cd src/menu && python3 build.py )
 ( cd src/landing && python3 build.py )
+python3 src/locations/build.py
 python3 src/site_build.py
 echo "OK: index.html, menu.html e img/ regenerados. Haz commit y push a main para publicar."

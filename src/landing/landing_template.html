@@ -359,7 +359,7 @@ function render(){
     const open=isOpen(l.hours);
     return `<article class="loc rv"><span class="city">${esc(l.city)}</span><h3 translate="no">${esc(l.name)}</h3><p class="addr">${esc(t(l.addr))}</p>
       <div class="hours"><span class="dot ${open.open?'':'closed'}"></span>${esc(open.text)}</div>
-      <div class="acts"><a class="btn turq" href="${l.maps}" target="_blank" rel="noopener">${lang==='es'?'Cómo llegar':'Directions'}</a><a class="btn ghost" href="${l.wa}" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div class="acts"><a class="btn turq" data-ev="como_llegar" data-branch="${l.page}" href="${l.maps}" target="_blank" rel="noopener">${lang==='es'?'Cómo llegar':'Directions'}</a><a class="btn ghost" data-ev="whatsapp" data-branch="${l.page}" href="${l.wa}" target="_blank" rel="noopener">WhatsApp</a><a class="btn ghost" data-ev="branch_page" data-branch="${l.page}" href="/${l.page}">${lang==='es'?'Ver sucursal':'Location page'}</a></div>
       ${l.todo?`<span class="todo">${esc(t(l.todo))}</span>`:''}</article>`}).join('');
   document.querySelectorAll('.rv').forEach(el=>rvio.observe(el));
 }
