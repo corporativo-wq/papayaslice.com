@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menú y precios · Papaya Slice</title>
+<meta name="description" content="Menú completo de Papaya Slice con precios en MXN: rebanadas NY y Detroit, pizzas completas, focaccias de masa madre, pastas, postres, cerveza artesanal y spritz. Playa del Carmen y Cancún.">
+<link rel="canonical" href="https://papayaslice.com/menu">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Papaya Slice"><meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Menú y precios · Papaya Slice"><meta property="og:description" content="Menú completo de Papaya Slice con precios en MXN: rebanadas NY y Detroit, pizzas completas, focaccias de masa madre, pastas, postres, cerveza artesanal y spritz. Playa del Carmen y Cancún.">
+<meta property="og:url" content="https://papayaslice.com/menu"><meta property="og:image" content="https://papayaslice.com/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Menu", "@id": "https://papayaslice.com/menu/#menu", "name": "Menú Papaya Slice", "url": "https://papayaslice.com/menu", "inLanguage": "es-MX", "hasMenuSection": [{"@type": "MenuSection", "name": "Especial del mes"}, {"@type": "MenuSection", "name": "Rebanadas"}, {"@type": "MenuSection", "name": "Pizzas completas"}, {"@type": "MenuSection", "name": "Focaccias"}, {"@type": "MenuSection", "name": "Para empezar"}, {"@type": "MenuSection", "name": "Ensaladas"}, {"@type": "MenuSection", "name": "Pastas"}, {"@type": "MenuSection", "name": "Postres"}, {"@type": "MenuSection", "name": "Bebidas"}]}</script>
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@900&family=Dela+Gothic+One&family=Outfit:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<style>
+:root{
+  --bg:#FFFFFF; --bg2:#FBF6F2; --ink:#1B1B1B; --muted:#6F6862; --line:#EDE4DD;
+  --coral:#F07A45; --coral-deep:#D9622F; --coral-ink:#B84E20; --teal:#2A9D9A; --teal-deep:#1F7C7A; --teal-ink:#15605E; --teal-soft:#E4F0EF;
+  --cream:#FFF6EC; --pink:#FFE7D6; --sun:#FFE7D6;
+  --shadow:0 10px 30px rgba(60,30,10,.10);
+  --display:"Sofia Sans Extra Condensed","Arial Narrow",Impact,sans-serif; --wide:"Dela Gothic One","Arial Black",sans-serif; --body:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+button,a.chip{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.skip{position:absolute;left:16px;top:-48px;z-index:99;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;font-weight:600;text-decoration:none}
+.skip:focus-visible{top:8px}
+@media (hover:hover) and (pointer:fine){
+  .chip:hover{border-color:var(--coral);color:var(--coral-ink)}
+  .chip.active:hover{color:#fff;filter:brightness(1.05)}
+  .lang button:hover{color:var(--ink)}
+  .lang button[aria-pressed="true"]:hover{color:#fff;filter:brightness(1.06)}
+}
+:root{--ease-out:cubic-bezier(.23,1,.32,1)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{margin:0;line-height:1;text-wrap:balance}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:900px;margin:0 auto;padding-inline:16px}
+.disp{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
+
+/* ---------- top bar + nav ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+.logo{height:36px;width:auto}
+.home{display:flex}
+.back{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:14px;letter-spacing:.06em;color:var(--teal-deep);text-decoration:none;padding:6px 10px;border-radius:999px;border:1px solid var(--line);margin-left:auto;margin-right:8px;transition:transform 120ms var(--ease-out)}
+.back:active{transform:scale(.97)}
+.lang{display:flex;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:3px}
+.lang button{transition:transform 120ms var(--ease-out);padding:5px 12px;}
+.lang button:active,.chip:active{transform:scale(.97)}
+.lang button{padding:5px 12px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--teal);color:#fff}
+.lang button:focus-visible,.chip:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+.nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 60px);z-index:29;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.chip{transition:transform 120ms var(--ease-out),background-color 150ms ease,color 150ms ease;flex:0 0 auto;padding:7px 14px;border-radius:999px;border:1px solid var(--line);font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:14px;letter-spacing:.05em;color:var(--ink);background:#fff;white-space:nowrap;text-decoration:none}
+.chip.active{background:var(--coral);border-color:var(--coral);color:#fff}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--coral);color:#fff;overflow:hidden;min-height:92svh;display:flex;flex-direction:column;justify-content:flex-end;padding-block:28px 96px}
+.hero .wrap{position:relative;z-index:2}
+.hero .kicker{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;background:#fff;color:var(--coral-ink);padding:6px 12px;border-radius:999px}
+.hero h1{font-family:var(--wide);font-weight:400;font-size:clamp(54px,15vw,150px);line-height:.92;margin-top:14px;color:#fff;text-shadow:0 4px 0 rgba(0,0,0,.08)}
+.hero h1 .alt{color:var(--teal-deep)}
+.hero p.lede{margin:16px 0 0;font-size:clamp(16px,4.5vw,22px);font-weight:500;max-width:28ch}
+.hero .pizza{position:absolute;right:-14vw;top:12vh;width:min(78vw,520px);z-index:1;filter:drop-shadow(0 30px 40px rgba(90,30,0,.35));will-change:transform}
+.hero .pizza img{width:100%;height:auto}
+.wave{display:block;width:100%;height:36px;position:absolute;left:0;bottom:-1px;z-index:3}
+.wave.top{top:-1px;bottom:auto;transform:scaleY(-1)}
+
+/* stickers */
+.stk{position:absolute;z-index:2;pointer-events:none;will-change:transform}
+.stk svg{display:block;overflow:visible}
+.spin{animation:spin 24s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float{animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-12px) rotate(4deg)}}
+
+/* marquee */
+.marquee{background:var(--teal);color:#fff;overflow:hidden;padding-block:12px;border-block:3px solid var(--teal-deep)}
+.marquee .track{display:flex;gap:0;width:max-content;animation:mq 28s linear infinite}
+.marquee:hover .track,.marquee:focus-within .track{animation-play-state:paused}
+.marquee span{font-family:var(--wide);font-weight:400;text-transform:uppercase;font-size:clamp(17px,4.6vw,28px);line-height:1;padding-inline:14px;white-space:nowrap}
+.marquee span i{font-style:normal;color:var(--pink);padding-inline:6px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.marquee.coral{background:var(--coral);border-color:var(--coral-deep)}
+.marquee.coral span i{color:var(--teal-soft)}
+
+/* ---------- section color blocks ---------- */
+section{scroll-margin-top:126px}
+.block{position:relative;padding-block:30px 52px;overflow:hidden}
+.block.coral{background:var(--coral);color:#fff}
+.block.teal{background:var(--teal);color:#fff}
+.block.cream{background:var(--cream);color:var(--ink)}
+.block.pink{background:var(--pink);color:var(--coral-ink)}
+.block h2{font-family:var(--wide);font-weight:400;font-size:clamp(30px,8vw,60px);overflow-wrap:anywhere;line-height:.98;letter-spacing:-.01em}
+.block .sub{display:block;font-family:var(--body);text-transform:none;font-weight:500;font-size:clamp(16px,4.2vw,20px);margin-top:12px;opacity:.9;letter-spacing:0}
+.block .sec-price{display:inline-block;margin-top:12px;font-family:var(--display);font-weight:900;font-size:clamp(24px,6.5vw,34px);background:#fff;color:var(--coral-ink);padding:2px 14px;border-radius:12px}
+.block.teal .sec-price{color:var(--teal-deep)}
+.block .note{font-size:15px;margin:14px 0 0;max-width:52ch;opacity:.92}
+.block .stk{opacity:.95}
+.content{padding-block:34px 10px}
+.rule{height:1px;background:var(--line);margin-top:28px}
+
+/* ---------- photo cards ---------- */
+.heroes{display:grid;gap:34px 18px;grid-template-columns:1fr}
+@media (min-width:700px){.heroes{grid-template-columns:1fr 1fr}.heroes .card.wide{grid-column:1/-1}}
+.card{position:relative}
+.card .ph{width:100%;max-width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:26px;box-shadow:var(--shadow)}
+.card.landscape .ph{aspect-ratio:4/3}
+.card.cutout{overflow:hidden}
+.card.cutout .ph{aspect-ratio:auto;height:auto;max-height:min(78vw,420px);width:auto;max-width:100%;margin:0 auto;object-fit:contain;border-radius:0;box-shadow:none;padding:0;will-change:transform}
+.card .cap{padding:10px 4px 0}
+.card.cutout .cap{padding-top:4px}
+.card .row{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.card h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(30px,8.5vw,40px);line-height:.95;color:var(--ink)}
+.price{font-family:var(--display);font-weight:900;font-size:22px;color:var(--coral-ink);white-space:nowrap;font-variant-numeric:tabular-nums;line-height:1}
+.desc{font-size:15px;color:var(--muted);margin:8px 0 0;max-width:44ch}
+.badge{position:absolute;top:14px;left:14px;z-index:2;background:#fff;color:var(--coral-ink);font-family:var(--display);font-weight:900;font-size:16px;padding:6px 12px;border-radius:999px;box-shadow:var(--shadow);letter-spacing:.04em}
+.tag{position:absolute;top:14px;right:14px;z-index:2;background:var(--teal);color:#fff;font-family:var(--display);font-weight:900;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px 4px;border-radius:4px}
+.card.cutout .badge,.card.cutout .tag{top:0}
+.card.cutout .tag{background:var(--coral-ink);box-shadow:none}
+.tag.inl{position:static;display:inline-block;font-size:11px;padding:3px 7px 2px;margin-left:8px;vertical-align:middle}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(12px);transition:opacity 260ms var(--ease-out),transform 260ms var(--ease-out)}
+.rv.in{opacity:1;transform:none}
+.heroes .card:nth-child(2n){transition-delay:40ms}
+@media (prefers-reduced-motion:reduce){.rv{transform:none;transition:opacity 200ms ease}}
+
+
+/* ---------- list items ---------- */
+.list{display:flex;flex-direction:column}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.item:last-child{border-bottom:0}
+.item h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(24px,6.5vw,30px);line-height:.95}
+.item .price{font-size:22px}
+.item .desc{grid-column:1;margin-top:4px}
+.num{color:var(--coral);margin-right:6px}
+
+/* ---------- choice boxes ---------- */
+.choice{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:14px 0}
+.opt{background:var(--cream);border:2px solid #F1E2D2;border-radius:16px;padding:12px 14px}
+.opt b{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:20px;letter-spacing:.02em}
+.opt small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.opt .plus{color:var(--teal);font-weight:700}
+.step{display:flex;gap:12px;align-items:center;margin-top:26px}
+.step .n{flex:0 0 34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:18px}
+.step h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:28px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pill{background:var(--teal-soft);color:var(--teal-deep);border-radius:999px;padding:7px 13px;font-size:14px;font-weight:600}
+.pill.light{background:rgba(255,255,255,.92);color:var(--ink);font-weight:600}
+.pill i{font-style:normal;color:var(--muted);font-size:12px;margin-left:4px;font-weight:500}
+.inline-price{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:20px;color:var(--teal-deep)}
+
+/* ---------- drinks ---------- */
+.spritz{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:0;width:100vw;margin:8px calc(50% - 50vw) 0}
+.spritz::-webkit-scrollbar{display:none}
+.spritz figure{flex:0 0 100vw;margin:0;scroll-snap-align:start}
+.spritz img{display:block;width:100vw;height:auto;aspect-ratio:2/3;object-fit:cover;max-height:88svh}
+@media (min-width:900px){.spritz{gap:0}.spritz figure{flex:0 0 33.333vw}.spritz img{width:33.333vw;aspect-ratio:2/3;max-height:none}}
+
+.cwrap{position:relative}
+.cnav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:52px;height:52px;border-radius:50%;background:#fff;color:var(--coral-ink);display:grid;place-items:center;box-shadow:0 8px 24px rgba(60,30,10,.18);cursor:pointer;border:0;padding:0;transition:opacity 200ms ease,transform 120ms var(--ease-out)}
+.cnav:active{transform:translateY(-50%) scale(.94)}
+.cnav.prev{left:12px}.cnav.next{right:12px}
+.cnav[disabled]{opacity:0;pointer-events:none}
+.cnav.next:not([disabled]){animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{0%,100%{translate:0 0}50%{translate:6px 0}}
+.cnav .pp{width:26px;height:26px;display:block}
+@media (prefers-reduced-motion:reduce){.cnav.next{animation:none}}
+.hint{font-size:13px;color:var(--muted);margin:10px 0 22px;font-weight:600}
+@media (min-width:900px){.hint{display:none}}
+.cols{display:grid;gap:0 32px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.cols h3.g{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:22px;letter-spacing:.06em;color:var(--coral-ink);margin:26px 0 4px}
+.cols .item h3{font-family:var(--body);text-transform:none;font-weight:600;font-size:17px;line-height:1.25}
+.cols .item .price{font-size:18px;color:var(--teal-deep)}
+.wine .desc{font-style:italic}
+.cols .price small{font-family:var(--body);font-weight:500;color:var(--muted);font-size:12px;margin-left:3px}
+
+footer{margin-top:40px;background:var(--teal-deep);color:#fff;padding-block:34px 44px;text-align:center;font-size:13px;position:relative}
+footer .big-logo{display:block;width:min(86%,520px);height:auto;margin:0 auto 18px}footer .big{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(40px,12vw,90px);line-height:.9;margin-bottom:14px}
+footer p{margin:6px auto 0;max-width:60ch;opacity:.9}
+@media (prefers-reduced-motion:reduce){.spin,.float,.marquee .track{animation:none}.hero .pizza,.card.cutout .ph{transform:none!important}}
+</style>
+
+<a class="skip" href="#menu" data-es>Saltar al menú</a><a class="skip" href="#menu" data-en hidden>Skip to menu</a>
+<header class="top"><div class="wrap">
+  <a href="/" class="home" aria-label="Inicio"><img class="logo" src="/img/da6e6e826c.png" alt="Papaya Slice" width="120" height="36" translate="no"></a>
+  <a href="/" class="back"><span data-es>← Inicio</span><span data-en hidden>← Home</span></a>
+  <div class="lang" role="group" aria-label="Idioma / Language">
+    <button id="lang-es" aria-pressed="true" onclick="setLang('es')">ES</button>
+    <button id="lang-en" aria-pressed="false" onclick="setLang('en')">EN</button>
+  </div>
+</div></header>
+<nav class="nav"><div class="wrap" id="nav"></div></nav>
+
+<main id="menu" style="transition:opacity 150ms ease"></main>
+
+<footer>
+  <img class="big-logo" src="/img/9637a14a2b.png" alt="Papaya Slice" width="600" height="380" loading="lazy" translate="no">
+  <div>@papayaslice · Playa del Carmen · Cancún</div>
+  <p data-es>Precios en pesos mexicanos (MXN), IVA incluido. Las imágenes son ilustrativas; los productos pueden salir con variaciones, pero igual de deliciosos.</p><p data-en hidden>Prices in Mexican pesos (MXN), tax included. Photos are illustrative; dishes may vary slightly, but they're just as delicious.</p>
+  <p><span data-es>Menú actualizado: agosto 2026</span><span data-en hidden>Menu updated: August 2026</span></p>
+</footer>
+
+<script>
+const IMG = {"poster": "/img/1cf8bdd97d.jpg", "tk_salchicha": "/img/a328404362.webp", "tk_tartufata": "/img/1c112b57a4.webp", "tk_cherry": "/img/fb5dc8290a.webp", "tk_pepperoni": "/img/a5c4b87bb4.webp", "tomates": "/img/788dde5a13.jpg", "panacotta": "/img/71f665ad94.jpg", "f1": "/img/d7c807815e.jpg", "f2": "/img/40881d17e4.jpg", "f5": "/img/bb677afaa4.jpg", "hero_png": "/img/9a2aa7b216.webp", "pz_jamon": "/img/acaa226996.webp", "sl_jamon": "/img/fad7607c0c.jpg", "lasagna": "/img/0847c0c549.jpg", "f3": "/img/399ecaa262.jpg", "f6": "/img/5fc3b07cbc.jpg", "logo_cream": "/img/ae8d7c9255.png", "hugo": "/img/ae9c3f46c1.jpg", "toronja": "/img/6dd7297540.jpg", "aperol1": "/img/82de2b8ad0.jpg"};
+const M = [{"id": "especial", "kind": "featured", "short": {"es": "Especial del mes", "en": "Monthly special"}, "eyebrow": {"es": "Especial del mes · Agosto", "en": "Monthly special · August"}, "title": "Tokyo Style", "sub": {"es": "Nuestra nueva era de pizza", "en": "A new era of pizza"}, "traits": [{"es": "Masa madre", "en": "Sourdough"}, {"es": "Doble fermentación 72 h", "en": "72-hour double fermentation"}, {"es": "Recién horneada", "en": "Fresh out of the oven"}, {"es": "Fluffy & ligera", "en": "Fluffy & light"}, {"es": "Jugosa & sabrosa", "en": "Juicy & flavorful"}], "note": {"es": "Disponibilidad limitada. Las imágenes son ilustrativas.", "en": "Limited availability. Photos are illustrative."}, "items": [{"n": {"es": "Salchicha italiana & pesto", "en": "Italian sausage & pesto"}, "d": {"es": "Pesto, burrata, salchicha italiana", "en": "Basil pesto, italian sausage, burrata cheese"}, "p": 195, "img": "tk_salchicha", "cut": true}, {"n": {"es": "Cherry & pistache", "en": "Cherry & pistachio"}, "d": {"es": "Pomodoro de cherrys, queso mozzarella, pesto de pistache", "en": "Cherry tomato pomodoro, mozzarella cheese, pistachio pesto"}, "p": 175, "img": "tk_cherry", "cut": true}, {"n": {"es": "Tartufata", "en": "Tartufata"}, "d": {"es": "Tartufata, queso, miel, aceite de trufa, crema de trufa", "en": "Truffle sauce, mozzarella cheese, olive oil, truffle cream, honey"}, "p": 165, "img": "tk_tartufata", "cut": true}, {"n": {"es": "Pepperoni", "en": "Pepperoni"}, "d": {"es": "Pomodoro, queso mozzarella, mucho pepperoni", "en": "Pomodoro, mozzarella cheese, lots of pepperoni"}, "p": 155, "img": "tk_pepperoni", "cut": true}]}, {"id": "rebanadas", "kind": "list", "title": {"es": "Rebanadas de pizza", "en": "Pizza slices"}, "short": {"es": "Rebanadas", "en": "Slices"}, "styles": [{"es": "Estilo NY · delgada", "en": "NY style · thin"}, {"es": "Estilo Detroit · gruesa, de charola", "en": "Detroit style · thick, pan-baked"}], "note": {"es": "Elige tu estilo. Mismo precio.", "en": "Choose your style. Same price."}, "items": [{"n": {"es": "Margarita", "en": "Margherita"}, "d": {"es": "Tomates italianos, mozzarella, albahaca", "en": "Italian tomatoes, mozzarella cheese, basil"}, "p": 110}, {"n": "Pepperoni", "d": {"es": "Tomates italianos, mozzarella, pepperoni", "en": "Italian tomatoes, mozzarella cheese, pepperoni"}, "p": 115}, {"n": {"es": "Cebolla caramelizada & pistache", "en": "Caramelized onion & pistachio"}, "d": {"es": "Queso mozzarella, cebolla caramelizada, pistache", "en": "Mozzarella cheese, caramelized onions, pistachio"}, "p": 115, "nuevo": true}, {"n": {"es": "Jamón ahumado", "en": "Smoked ham"}, "d": {"es": "Mozzarella, jamón ahumado, pesto de pistache y burrata", "en": "Mozzarella cheese, smoked ham, pistachio pesto, burrata cheese"}, "p": 130, "img": "sl_jamon", "cut": true}, {"n": "Bacon lovers", "d": {"es": "Pomodoro, mozzarella, mermelada de tocino, burrata derretida, pancetta", "en": "Italian tomatoes, mozzarella, bacon jam, melted burrata, pancetta"}, "p": 130, "nuevo": true}, {"n": {"es": "Hawaiana", "en": "Hawaiian"}, "d": {"es": "Tomates italianos, mozzarella, pancetta, piña", "en": "Italian tomatoes, mozzarella, pancetta, pineapple"}, "p": 135}, {"n": {"es": "Trufa & hongos", "en": "Truffle & mushrooms"}, "d": {"es": "Mozzarella, crema de trufa, setas & hongos", "en": "Mixed mushrooms, mozzarella cheese, truffle cream"}, "p": 135}, {"n": {"es": "Trufa & pancetta", "en": "Truffle & pancetta"}, "d": {"es": "Mozzarella, crema de trufa, pancetta ahumada", "en": "Mozzarella, truffle cream, smoked pancetta"}, "p": 145}, {"n": {"es": "Arúgula & burrata", "en": "Arugula & burrata"}, "d": {"es": "Arúgula, burrata, jamón ahumado, mozzarella, pomodoro", "en": "Arugula, burrata cheese & smoked ham, on top of a margherita slice"}, "p": 145, "nuevo": true}, {"n": "PPP", "d": {"es": "Tomates italianos, mozzarella, pepperoni, burrata, miel spicy", "en": "Italian tomatoes, mozzarella cheese, pepperoni, burrata cheese, hot honey"}, "p": 150}, {"n": "Meat loooovers", "d": {"es": "Pomodoro, mozzarella, pepperoni, salchicha italiana, pancetta, albóndigas, pomodoro extra", "en": "Italian tomatoes, mozzarella, pepperoni, italian sausage, meatballs, pancetta, extra tomato sauce"}, "p": 165}], "pills": {"title": {"es": "Toppings & dips · pasa tu pizza al siguiente nivel", "en": "Toppings & dips · take your pizza to the next level"}, "p": 30, "opts": [{"n": {"es": "Arúgula", "en": "Arugula"}, "g": "20 g"}, {"n": {"es": "Aceite de trufa", "en": "Truffle oil"}, "g": "10 g"}, {"n": {"es": "Hongos al ajillo", "en": "Garlic mushrooms"}, "g": "70 g"}, {"n": {"es": "Mermelada de tocino", "en": "Bacon jam"}, "g": "30 g"}, {"n": {"es": "Pesto de pistache", "en": "Pistachio pesto"}, "g": "20 g"}, {"n": {"es": "Miel habanero", "en": "Habanero honey"}, "g": "20 g"}, {"n": {"es": "Crema de burrata", "en": "Burrata cream"}, "g": "90 g"}]}}, {"id": "completas", "kind": "list", "title": {"es": "Pizzas completas", "en": "Whole pizzas"}, "short": {"es": "Pizzas completas", "en": "Whole pizzas"}, "sub": {"es": "Detroit o NY · 8 rebanadas · para 4–6 personas", "en": "Detroit or NY · 8 slices · serves 4–6"}, "items": [{"n": {"es": "Margarita", "en": "Margherita"}, "p": 570}, {"n": "Pepperoni", "p": 620}, {"n": {"es": "Hawaiana", "en": "Hawaiian"}, "p": 650}, {"n": {"es": "Trufa y hongos", "en": "Truffle & mushrooms"}, "p": 650}, {"n": {"es": "Jamón, pesto y burrata", "en": "Ham, pesto & burrata"}, "d": {"es": "Mozzarella, jamón ahumado, pesto de pistache, burrata, albahaca", "en": "Mozzarella, smoked ham, pistachio pesto, burrata, basil"}, "p": 690, "img": "pz_jamon", "cut": true}]}, {"id": "focaccias", "kind": "list", "title": {"es": "Focaccias de masa madre", "en": "Sourdough focaccias"}, "short": {"es": "Focaccias", "en": "Focaccias"}, "note": {"es": "Elige tu focaccia: fresca (crema de burrata) ó horneada (mozzarella & cheddar).", "en": "Choose your focaccia: fresh (burrata cream) or baked (mozzarella & cheddar)."}, "items": [{"num": 1, "n": {"es": "Meatballs & pomodoro", "en": "Meatballs & pomodoro"}, "d": {"es": "Focaccia de masa madre, meatballs, mucha salsa pomodoro", "en": "Sourdough focaccia, meatballs, pomodoro sauce"}, "p": 250, "img": "f1"}, {"num": 2, "n": {"es": "Jamón ahumado & aguacate", "en": "Smoked ham & avocado"}, "d": {"es": "Focaccia de masa madre, jamón ahumado, aguacate, aceite de trufa", "en": "Sourdough focaccia, smoked ham, avocado, truffle oil"}, "p": 180, "img": "f2"}, {"num": 3, "n": {"es": "Jamón ahumado & pesto", "en": "Smoked ham & pesto"}, "d": {"es": "Focaccia de masa madre, jamón ahumado, pesto", "en": "Sourdough focaccia, smoked ham, basil pesto"}, "p": 180, "img": "f3"}, {"num": 4, "n": {"es": "Pancetta, jamón ahumado, cebolla & miel", "en": "Pancetta, smoked ham, onion & honey"}, "d": {"es": "Focaccia de masa madre, pancetta, jamón ahumado, miel picante, cebolla caramelizada", "en": "Sourdough focaccia, italian pancetta, smoked ham, hot honey, caramelized onions"}, "p": 250}, {"num": 5, "n": {"es": "Veggie mix & pesto rojo", "en": "Veggie mix & red pesto"}, "d": {"es": "Focaccia de masa madre, aguacate, pesto de tomate deshidratado, arúgula, reducción de balsámico", "en": "Sourdough focaccia, avocado, red pesto, arugula, balsamic glaze"}, "p": 180, "img": "f5", "land": true}, {"num": 6, "n": {"es": "Jamón ahumado, trufa & miel", "en": "Smoked ham, truffle & honey"}, "d": {"es": "Focaccia de masa madre, jamón ahumado, tartufata italiana, miel picante", "en": "Sourdough focaccia, smoked ham, italian truffle, hot honey"}, "p": 180, "img": "f6"}], "pills": {"title": {"es": "Extras", "en": "Extras"}, "p": 30, "opts": [{"n": {"es": "Aguacate", "en": "Avocado"}}, {"n": {"es": "Hot honey", "en": "Hot honey"}}, {"n": {"es": "Arúgula", "en": "Arugula"}}]}}, {"id": "entradas", "kind": "list", "title": {"es": "Para empezar", "en": "To start"}, "short": {"es": "Para empezar", "en": "Starters"}, "items": [{"n": {"es": "Tomates cherry & burrata al horno", "en": "Baked cherry tomatoes & burrata"}, "d": {"es": "Tomates cherry rostizados, burrata fresca, albahaca, aceite de oliva", "en": "Roasted cherry tomatoes, fresh burrata, basil, olive oil"}, "p": 90, "nuevo": true, "img": "tomates"}, {"n": {"es": "Meatballs", "en": "Meatballs"}, "d": {"es": "Carne molida 100% angus, parmesano, aceite de oliva. Elige tu salsa: pesto, spicy vodka o trufa", "en": "100% angus beef, parmesan, olive oil. Choose your sauce: pesto, spicy vodka or truffle"}, "p": 160}]}, {"id": "ensaladas", "kind": "list", "title": {"es": "Ensaladas", "en": "Salads"}, "price": 130, "items": [{"n": {"es": "Burrata y trufa", "en": "Burrata & truffle"}, "d": {"es": "Arúgula baby, pistache, reducción de balsámico, aceite de trufa, burrata, láminas de parmesano", "en": "Baby arugula, pistachio, balsamic glaze, truffle oil, burrata, parmesan shavings"}, "nuevo": true}, {"n": {"es": "Arúgula & jamón ahumado", "en": "Arugula & smoked ham"}, "d": {"es": "Arúgula baby, pesto rojo, reducción de balsámico, jamón ahumado, nueces de la India tostadas", "en": "Baby arugula, red pesto, balsamic glaze, smoked ham, toasted cashews"}, "nuevo": true}]}, {"id": "pastas", "kind": "pasta", "title": {"es": "Pastas", "en": "Pastas"}, "price": 200, "sub": {"es": "Arma la tuya en 3 pasos", "en": "Build yours in 3 steps"}, "recLabel": {"es": "Recomendamos", "en": "We recommend"}, "steps": [{"title": {"es": "Elige la forma", "en": "Choose the shape"}, "opts": [{"n": "Gnocchi"}, {"n": "Rigatoni"}, {"n": "Ravioli"}]}, {"title": {"es": "Elige la salsa", "en": "Choose the sauce"}, "opts": [{"n": "Pesto", "rec": {"es": "burrata y pancetta", "en": "burrata & pancetta"}, "plus": 90}, {"n": "Spicy vodka", "rec": {"es": "albóndigas", "en": "meatballs"}, "plus": 55}, {"n": {"es": "Trufa", "en": "Truffle"}, "rec": {"es": "hongos y pancetta", "en": "mushrooms & pancetta"}, "plus": 70}]}, {"title": {"es": "Elige los toppings", "en": "Choose your toppings"}, "opts": [], "groups": [{"n": {"es": "Toppings premium", "en": "Premium toppings"}, "p": 55, "opts": [{"n": {"es": "Salchicha", "en": "Sausage"}, "g": "40 g"}, {"n": {"es": "Albóndigas", "en": "Meatballs"}, "g": "25 g"}, {"n": "Pancetta", "g": "40 g"}, {"n": {"es": "Crema de burrata", "en": "Burrata cream"}, "g": "90 g"}]}, {"n": {"es": "Toppings", "en": "Toppings"}, "p": 30, "opts": [{"n": {"es": "Hongos al ajillo", "en": "Garlic mushrooms"}, "g": "70 g"}, {"n": {"es": "Aceite de trufa", "en": "Truffle oil"}, "g": "10 g"}]}]}], "extra": [{"n": {"es": "Lasagna con burrata", "en": "Burrata lasagna"}, "d": {"es": "Lasagna con burrata, pesto rojo y ragú de 8 horas", "en": "Lasagna with burrata, red pesto and 8-hour ragù"}, "p": 250, "nuevo": true, "img": "lasagna", "land": true}]}, {"id": "postres", "kind": "cards", "title": {"es": "Postres", "en": "Desserts"}, "price": 120, "items": [{"n": {"es": "Panacotta & mango", "en": "Panna cotta & mango"}, "d": {"es": "Nata premium, coulis de mango natural de Colima", "en": "Premium cream, natural Colima mango coulis"}, "nuevo": true, "img": "panacotta"}, {"n": {"es": "Tiramisú de pistache", "en": "Pistachio tiramisu"}, "d": {"es": "Mascarpone y pistache, soletillas con espresso & amaretto, pistache triturado", "en": "Pistachio mascarpone, espresso & amaretto-soaked ladyfingers, crushed pistachio"}}, {"n": {"es": "Panacotta & aceite de oliva", "en": "Panna cotta & olive oil"}, "d": {"es": "Nata premium, aceite de oliva extra virgen D.O.P. italiano y una pizca de sal rosa del Himalaya", "en": "Premium cream, Italian D.O.P. extra virgin olive oil and a pinch of Himalayan pink salt"}, "nuevo": true}]}, {"id": "bebidas", "kind": "drinks", "title": {"es": "Bebidas", "en": "Drinks"}, "glass": {"es": " copa", "en": " glass"}, "bottle": {"es": " botella", "en": " bottle"}, "groups": [{"n": {"es": "Spritzs & sangría", "en": "Spritzes & sangria"}, "items": [{"n": "Aperol spritz", "p": 150}, {"n": "Campari spritz", "p": 150}, {"n": "Hugo spritz", "p": 180}, {"n": "Toronja spritz", "d": {"es": "Toronja, prosecco y soda", "en": "Grapefruit, prosecco and soda"}, "p": 170, "nuevo": true}, {"n": {"es": "Sangría tinta", "en": "Red sangria"}, "p": 175}]}, {"n": {"es": "Bebidas suaves", "en": "Soft drinks"}, "items": [{"n": {"es": "Cerveza", "en": "Beer"}, "d": "Heineken, Indio", "p": 70}, {"n": {"es": "Limonadas", "en": "Lemonades"}, "d": {"es": "Limón, jamaica, mango", "en": "Lime, hibiscus, mango"}, "p": 75}, {"n": {"es": "Sodas", "en": "Sodas"}, "d": "Coca-Cola, Fanta, Sprite", "p": 65}, {"n": "Félix", "d": {"es": "Manzana, guayaba", "en": "Apple, guava"}, "p": 65}, {"n": {"es": "Agua Ciel", "en": "Ciel water"}, "p": 60}, {"n": "Topo Chico", "p": 70}]}, {"n": {"es": "Cerveza artesanal mexicana", "en": "Mexican craft beer"}, "items": [{"n": "Colimita", "d": "Lager", "p": 110}, {"n": "Piedra Lisa", "d": "Session IPA", "p": 115}, {"n": "Principia Espectra", "d": "IPA", "p": 140}]}, {"n": {"es": "Cocteles", "en": "Cocktails"}, "items": [{"n": {"es": "Margarita de la casa", "en": "House margarita"}, "p": 99}, {"n": {"es": "Cocteles clásicos", "en": "Classic cocktails"}, "p": 180}]}, {"n": {"es": "Vino mexicano · blancos", "en": "Mexican wine · whites"}, "wine": true, "items": [{"n": "Puerto Nuevo · Sauvignon blanc", "d": "Valle de Guadalupe, Baja California", "p": 99, "p2": 450}, {"n": "L.A. Cetto Verano · Sauvignon blanc", "d": "Valle de Guadalupe, Baja California", "p": 175, "p2": 660}]}, {"n": {"es": "Vino mexicano · tintos", "en": "Mexican wine · reds"}, "wine": true, "items": [{"n": "Puerto Nuevo · Cabernet malbec", "d": "Valle de Guadalupe, Baja California", "p": 99, "p2": 450}, {"n": "L.A. Cetto Invierno · Petit verdot", "d": "Valle de Guadalupe, Baja California", "p": 175, "p2": 660}, {"n": "Megacero", "d": "Encinillas, Chihuahua", "p": 1490}]}]}];
+let lang = 'es';
+try{ const q=new URLSearchParams(location.search).get('lang'); if(q==='en'||q==='es') lang=q; else { const s=localStorage.getItem('ps-lang'); if(s==='en'||s==='es') lang=s; } }catch(e){}
+
+const t = o => (o && typeof o==='object' && !Array.isArray(o)) ? (o[lang] ?? o.es) : o;
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const NEW = () => lang==='es'?'Nuevo':'New';
+const price = p => (p==null||p==='')?'':`<span class="price">$${p}</span>`;
+
+/* --- decorative SVG stickers --- */
+const S = {
+  spark:(c,s=44)=>`<svg width="${s}" height="${s}" viewBox="0 0 40 40"><path d="M20 0c1.5 11 8 17.5 20 20-12 2.5-18.5 9-20 20-1.5-11-8-17.5-20-20 12-2.5 18.5-9 20-20z" fill="${c}"/></svg>`,
+  bolt:(c,s=40)=>`<svg width="${s}" height="${s*1.5}" viewBox="0 0 40 60"><path d="M24 0 4 34h14L12 60l24-36H22z" fill="${c}"/></svg>`,
+  smile:(c,s=54)=>`<svg width="${s}" height="${s}" viewBox="0 0 60 60" fill="none" stroke="${c}" stroke-width="4" stroke-linecap="round"><circle cx="30" cy="30" r="26"/><path d="M18 36c4 7 20 7 24 0"/><circle cx="21" cy="24" r="2.5" fill="${c}" stroke="none"/><circle cx="39" cy="24" r="2.5" fill="${c}" stroke="none"/></svg>`,
+  ring:(txt,c,bg,s=120)=>`<svg width="${s}" height="${s}" viewBox="0 0 120 120"><defs><path id="rp${txt.length}" d="M60 60m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"/></defs>${bg?`<circle cx="60" cy="60" r="58" fill="${bg}"/>`:''}<text font-family="Sofia Sans Extra Condensed,Impact,sans-serif" font-weight="900" font-size="16" fill="${c}"><textPath href="#rp${txt.length}" textLength="262" lengthAdjust="spacing">${txt}</textPath></text></svg>`,
+  star:(c,s=60)=>`<svg width="${s}" height="${s}" viewBox="0 0 60 60"><path d="M30 2l6 18h19L40 31l6 19-16-12-16 12 6-19L5 20h19z" fill="none" stroke="${c}" stroke-width="3" stroke-linejoin="round"/></svg>`,
+  squig:(c,s=90)=>`<svg width="${s}" height="${s*0.5}" viewBox="0 0 90 45" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round"><path d="M4 30c12-22 20 12 32-8s18 14 30-6 12 8 20 2"/></svg>`
+};
+const wave = (fill,cls='') => `<svg class="wave ${cls}" viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 30c150 40 300-40 450-10s300 50 450 10 200-40 300-10V60H0z" fill="${fill}"/></svg>`;
+
+function card(it, wide){
+  const cls = `card ${it.land?'landscape':''} ${it.cut?'cutout':''} ${wide?'wide':''} rv`;
+  return `<article class="${cls}">${it.num?`<span class="badge">#${it.num}</span>`:''}${it.nuevo?`<span class="tag">${NEW()}</span>`:''}
+  <img class="ph ${it.cut?'rot':''}" src="${IMG[it.img]}" alt="${esc(t(it.n))}" loading="lazy">
+  <div class="cap"><div class="row"><h3>${esc(t(it.n))}</h3>${it.p!=null?price(it.p):''}</div>${it.d?`<p class="desc">${esc(t(it.d))}</p>`:''}</div></article>`;
+}
+function item(it){
+  return `<div class="item rv"><h3>${it.num?`<span class="num">#${it.num}</span>`:''}${esc(t(it.n))}${it.nuevo?`<span class="tag inl">${NEW()}</span>`:''}</h3>${it.p!=null?price(it.p):''}${it.d?`<p class="desc">${esc(t(it.d))}</p>`:''}</div>`;
+}
+function mixed(items){
+  const ph=items.filter(i=>i.img), tx=items.filter(i=>!i.img);
+  return (ph.length?`<div class="heroes">${ph.map((i,k)=>card(i, ph.length%2===1 && k===0)).join('')}</div>`:'') + (tx.length?`<div class="list" style="margin-top:${ph.length?22:0}px">${tx.map(item).join('')}</div>`:'');
+}
+const PAL = ['teal','cream','coral','pink','teal','cream','coral','pink'];
+const stickerSet = (pal) => '';
+function block(sec, i){
+  const pal = PAL[i%PAL.length];
+  const waveFill = '#FFFFFF';
+  return `<div class="block ${pal}">${stickerSet(pal)}<div class="wrap">
+    <h2 class="disp rv">${esc(t(sec.title))}${sec.sub?`<span class="sub">${esc(t(sec.sub))}</span>`:''}</h2>
+    ${sec.price?`<span class="sec-price rv d1">$${sec.price}</span>`:''}
+    ${sec.styles?`<div class="pills rv d1" style="margin-top:14px">${sec.styles.map(x=>`<span class="pill light">${esc(t(x))}</span>`).join('')}</div>`:''}
+    ${sec.note?`<p class="note rv d1">${esc(t(sec.note))}</p>`:''}
+  </div>${wave(waveFill)}</div>`;
+}
+function featured(sec){
+  const tr = sec.traits.map(x=>esc(t(x))).join(' · ');
+  return `<section id="${sec.id}">
+  <div class="hero">
+    <span class="stk spin" aria-hidden="true" style="left:16px;top:5%">${S.ring(lang==='es'?'MASA MADRE · 72 HORAS · ':'SOURDOUGH · 72 HOURS · ','#fff','',120)}</span>
+    <div class="pizza" id="heroPizza"><img src="${IMG.hero_png}" alt="" fetchpriority="high"></div>
+    <div class="wrap">
+      <span class="kicker">${esc(t(sec.eyebrow))}</span>
+      <h1 class="disp" translate="no">Tokyo<br><span class="alt">Style</span></h1>
+      <p class="lede">${esc(t(sec.sub))}. ${tr}.</p>
+    </div>
+    ${wave('#FFFFFF')}
+  </div>
+  <div class="marquee" tabindex="0"><div class="track">${Array(8).fill(0).map((x,k)=>`<span ${k?'aria-hidden="true"':''} translate="no">Papaya Slice<i>·</i>${lang==='es'?'Especial del mes':'Monthly special'}<i>·</i></span>`).join('')}</div></div>
+  <div class="wrap content">
+    <div class="heroes">${sec.items.map(i=>card(i)).join('')}</div>
+    <p class="desc" style="margin-top:22px">${esc(t(sec.note))}</p>
+  </div>
+  <div class="marquee coral" tabindex="0"><div class="track">${Array(8).fill(0).map((x,k)=>`<span ${k?'aria-hidden="true"':''} translate="no">Papaya Slice<i>·</i>Pizza · Focaccia · Pasta<i>·</i></span>`).join('')}</div></div>
+</section>`;
+}
+function render(noReveal){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-es]').forEach(e=>e.hidden = lang!=='es');
+  document.querySelectorAll('[data-en]').forEach(e=>e.hidden = lang!=='en');
+  document.getElementById('lang-es').setAttribute('aria-pressed', lang==='es');
+  document.getElementById('lang-en').setAttribute('aria-pressed', lang==='en');
+  document.getElementById('nav').innerHTML = M.map(s=>`<a class="chip" href="#${s.id}" onclick="if(event.metaKey||event.ctrlKey)return;event.preventDefault();document.getElementById('${s.id}').scrollIntoView({behavior:'smooth',block:'start'})">${esc(t(s.short||s.title))}</a>`).join('');
+  let bi = 0;
+  document.getElementById('menu').innerHTML = M.map(sec => {
+    if(sec.kind==='featured') return featured(sec);
+    let body='';
+    if(sec.kind==='cards' || sec.kind==='list') body = mixed(sec.items);
+    if(sec.kind==='pasta'){
+      body = sec.steps.map((st,i)=>`<div class="step rv"><span class="n">${i+1}</span><h3>${esc(t(st.title))}</h3></div>
+        <div class="choice rv d1">${st.opts.map(o=>`<div class="opt"><b>${esc(t(o.n))}</b>${o.rec?`<small>${esc(t(sec.recLabel))}: ${esc(t(o.rec))} <span class="plus">+$${o.plus}</span></small>`:''}</div>`).join('')}</div>
+        ${st.groups?st.groups.map(g=>`<p class="desc rv" style="margin-top:8px"><b class="inline-price">${esc(t(g.n))} $${g.p}</b></p><div class="pills rv d1">${g.opts.map(o=>`<span class="pill">${esc(t(o.n))}<i>${o.g}</i></span>`).join('')}</div>`).join(''):''}`).join('');
+      if(sec.extra) body += `<div style="margin-top:30px">${mixed(sec.extra)}</div>`;
+    }
+    if(sec.kind==='drinks'){
+      body = `<div class="cwrap"><div class="spritz" aria-label="Spritz"><figure><img src="${IMG.toronja}" alt="Toronja Spritz" loading="lazy"></figure><figure><img src="${IMG.hugo}" alt="Hugo Spritz" loading="lazy"></figure><figure><img src="${IMG.aperol1}" alt="Aperol Spritz" loading="lazy"></figure></div></div><div style="height:22px"></div><div class="cols">${sec.groups.map(g=>`<div class="${g.wine?'wine':''}"><h3 class="g rv">${esc(t(g.n))}</h3><div class="list">${g.items.map(it=>`<div class="item rv"><h3>${esc(t(it.n))}</h3><span class="price">${it.p2?`$${it.p}<small>${esc(t(sec.glass))}</small> · $${it.p2}<small>${esc(t(sec.bottle))}</small>`:`$${it.p}`}</span>${it.d?`<p class="desc">${esc(t(it.d))}</p>`:''}</div>`).join('')}</div></div>`).join('')}</div>`;
+    }
+    if(sec.pills) body += `<p class="desc rv" style="margin-top:22px"><b class="inline-price">${esc(t(sec.pills.title))} $${sec.pills.p}</b></p><div class="pills rv d1">${sec.pills.opts.map(o=>`<span class="pill">${esc(t(o.n))}${o.g?`<i>${o.g}</i>`:''}</span>`).join('')}</div>`;
+    return `<section id="${sec.id}">${block(sec, bi++)}<div class="wrap content">${body}</div></section>`;
+  }).join('');
+  document.querySelectorAll('section').forEach(s=>io.observe(s));
+  document.querySelectorAll('.rv').forEach(el=>{ if(noReveal) el.classList.add('in'); else rvio.observe(el); });
+}
+let rendered=false;
+function setLang(l){ if(l===lang) return; lang=l; try{localStorage.setItem('ps-lang',l)}catch(e){} const m=document.getElementById('menu'); m.style.opacity='0'; setTimeout(()=>{ render(true); carousels(); m.style.opacity='1'; },150); }
+
+/* active chip */
+const chips = () => [...document.querySelectorAll('.chip')];
+const io = new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ chips().forEach(c=>c.classList.toggle('active', c.getAttribute('href')==='#'+e.target.id)); const a=document.querySelector('.chip.active'); a && a.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'}); } }); },{rootMargin:'-130px 0px -60% 0px'});
+/* reveal */
+const rvio = new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); rvio.unobserve(e.target); } }); },{rootMargin:'120px 0px 120px 0px'});
+
+/* carousel arrows */
+function carousels(){
+  const ARROW='<svg class="pp" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 13h13M13 7l6 6-6 6" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  document.querySelectorAll('.cwrap:not([data-nav])').forEach(w=>{
+    w.dataset.nav='1'; const sc=w.querySelector('.spritz'); if(!sc) return;
+    const mk=(cls,lbl)=>{const b=document.createElement('button');b.type='button';b.className='cnav '+cls;b.setAttribute('aria-label',lbl);b.innerHTML=ARROW;w.appendChild(b);return b;};
+    const prev=mk('prev',lang==='es'?'Anterior':'Previous'), next=mk('next',lang==='es'?'Siguiente':'Next'); prev.style.transform='translateY(-50%) rotate(180deg)';
+    const step=()=>sc.firstElementChild.getBoundingClientRect().width;
+    const upd=()=>{prev.toggleAttribute('disabled',sc.scrollLeft<30); next.toggleAttribute('disabled',sc.scrollLeft+sc.clientWidth>=sc.scrollWidth-8);};
+    prev.onclick=()=>sc.scrollBy({left:-step(),behavior:'smooth'}); next.onclick=()=>sc.scrollBy({left:step(),behavior:'smooth'});
+    sc.addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd(); setTimeout(upd,800);
+  });
+}
+
+render(); carousels();
+
+/* scroll-linked motion: hero pizza + cut-out pizzas rotate as you scroll */
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduce){
+  let last=-1;
+  const tick=()=>{
+    const y=window.scrollY;
+    if(y!==last){
+      last=y;
+      const hp=document.getElementById('heroPizza');
+      if(hp) hp.style.transform=`translateY(${y*0.18}px) rotate(${y*0.12}deg)`;
+      const vh=innerHeight;
+      document.querySelectorAll('.card.cutout .ph').forEach(el=>{
+        const r=el.getBoundingClientRect(); const p=(r.top+r.height/2-vh/2)/vh;
+        el.style.transform=`rotate(${p*28}deg)`;
+      });
+    }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+</script>
+
+</body>
+</html>
