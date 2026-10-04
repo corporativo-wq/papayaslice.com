@@ -84,12 +84,13 @@ MENU = [
    {"n":b("Panacotta & mango","Panna cotta & mango"),"d":b("Nata premium, coulis de mango natural de Colima","Premium cream, natural Colima mango coulis"),"nuevo":True,"img":"panacotta"},
    {"n":b("Tiramisú de pistache","Pistachio tiramisu"),"d":b("Mascarpone y pistache, soletillas con espresso & amaretto, pistache triturado","Pistachio mascarpone, espresso & amaretto-soaked ladyfingers, crushed pistachio")},
    {"n":b("Panacotta & aceite de oliva","Panna cotta & olive oil"),"d":b("Nata premium, aceite de oliva extra virgen D.O.P. italiano y una pizca de sal rosa del Himalaya","Premium cream, Italian D.O.P. extra virgin olive oil and a pinch of Himalayan pink salt"),"nuevo":True},
+   {"n":b("Helado soft serve fior di latte","Fior di latte soft serve"),"d":b("Con aceite de oliva D.O.P. italiano y sal rosa del Himalaya","With Italian D.O.P. olive oil and Himalayan pink salt"),"nuevo":True},
   ]},
 
  {"id":"bebidas","kind":"drinks","title":b("Bebidas","Drinks"),"glass":b(" copa"," glass"),"bottle":b(" botella"," bottle"),
   "groups":[
    {"n":b("Spritzs & sangría","Spritzes & sangria"),"items":[
-     {"n":"Aperol spritz","p":150},{"n":"Campari spritz","p":150},{"n":"Hugo spritz","p":180},{"n":"Toronja spritz","d":b("Toronja, prosecco y soda","Grapefruit, prosecco and soda"),"p":175,"nuevo":True},{"n":b("Sangría tinta","Red sangria"),"p":175}]},
+     {"n":"Aperol spritz","p":180},{"n":"Campari spritz","p":150},{"n":"Hugo spritz","p":180},{"n":"Toronja spritz","d":b("Toronja, prosecco y soda","Grapefruit, prosecco and soda"),"p":175,"nuevo":True},{"n":b("Sangría tinta","Red sangria"),"p":175}]},
    {"n":b("Bebidas suaves","Soft drinks"),"items":[
      {"n":b("Cerveza","Beer"),"d":"Heineken, Indio","p":70},
      {"n":b("Limonadas","Lemonades"),"d":b("Limón, jamaica, mango","Lime, hibiscus, mango"),"p":75},
