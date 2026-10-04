@@ -84,7 +84,7 @@ MENU = [
    {"n":b("Panacotta & mango","Panna cotta & mango"),"d":b("Nata premium, coulis de mango natural de Colima","Premium cream, natural Colima mango coulis"),"nuevo":True,"img":"panacotta"},
    {"n":b("Tiramisú de pistache","Pistachio tiramisu"),"d":b("Mascarpone y pistache, soletillas con espresso & amaretto, pistache triturado","Pistachio mascarpone, espresso & amaretto-soaked ladyfingers, crushed pistachio")},
    {"n":b("Panacotta & aceite de oliva","Panna cotta & olive oil"),"d":b("Nata premium, aceite de oliva extra virgen D.O.P. italiano y una pizca de sal rosa del Himalaya","Premium cream, Italian D.O.P. extra virgin olive oil and a pinch of Himalayan pink salt"),"nuevo":True},
-   {"n":b("Helado soft serve fior di latte","Fior di latte soft serve"),"d":b("Con aceite de oliva D.O.P. italiano y sal rosa del Himalaya","With Italian D.O.P. olive oil and Himalayan pink salt"),"nuevo":True},
+   {"n":b("Helado soft serve fior di latte","Fior di latte soft serve"),"d":b("Con aceite de oliva D.O.P. italiano y sal rosa del Himalaya. Solo en sucursal Náder (Cancún)","With Italian D.O.P. olive oil and Himalayan pink salt. Náder location (Cancún) only"),"nuevo":True},
   ]},
 
  {"id":"bebidas","kind":"drinks","title":b("Bebidas","Drinks"),"glass":b(" copa"," glass"),"bottle":b(" botella"," bottle"),
