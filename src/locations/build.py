@@ -223,7 +223,7 @@ def page(key):
       <a href="/cancun">Cancún</a>
     </div>
   </div>
-  <div class="legal">© 2026 Papaya Slice · Mu Group · <span data-es>Aviso de privacidad</span><span data-en hidden>Privacy notice</span></div>
+  <div class="legal">© 2026 Papaya Slice · Mu Group · <a href="/privacidad" style="display:inline;color:inherit;text-decoration:underline"><span data-es>Aviso de privacidad</span><span data-en hidden>Privacy notice</span></a></div>
 </div></footer>
 
 <nav class="bar" aria-label="Acciones">

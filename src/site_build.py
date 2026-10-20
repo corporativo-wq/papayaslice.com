@@ -45,6 +45,8 @@ window.dataLayer.push({event:'cta_click',cta:a.getAttribute('data-ev'),branch:a.
 if(typeof gtag==='function'){gtag('event',a.getAttribute('data-ev'),{branch:a.getAttribute('data-branch')||'',page_path:location.pathname});}},{passive:true});
 </script>
 '''
+# Meta Pixel de Papaya Slice: se inserta tal cual antes de </head> en todas las páginas (src/meta_pixel.html)
+PIXEL=open('src/meta_pixel.html',encoding='utf-8').read() if os.path.exists('src/meta_pixel.html') else ''
 def wrap(body,title,desc,path,ld):
     body=re.sub(r'^<title>.*?</title>\n','',body)
     lines=body.split('\n'); headlines=[]; i=0
@@ -68,7 +70,7 @@ def wrap(body,title,desc,path,ld):
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">{ld}</script>
 '''
-    return head+'\n'.join(headlines)+'\n</head>\n<body>\n'+rest+'\n'+EVENTS+'</body>\n</html>\n'
+    return head+'\n'.join(headlines)+'\n'+PIXEL+'</head>\n<body>\n'+rest+'\n'+EVENTS+'</body>\n</html>\n'
 L=open('build/papaya-slice-landing.html').read().replace('https://claude.ai/artifact/DoMWeTromrd56uR4MHRPeL','/menu')
 M=open('build/papaya-slice-menu.html').read().replace('https://claude.ai/artifact/UMA9LHkZTeD8TuqugmA6Zt','/')
 open('index.html','w').write(wrap(L,SEO['inicio']['title'],SEO['inicio']['description'],'/',LD_HOME))
@@ -76,6 +78,8 @@ open('menu.html','w').write(wrap(M,SEO['menu']['title'],SEO['menu']['description
 P38=open('build/loc-playa-del-carmen.html').read(); PNA=open('build/loc-cancun.html').read()
 open('playa-del-carmen.html','w').write(wrap(P38,SEO['38']['title'],SEO['38']['description'],'/playa-del-carmen',LD_38))
 open('cancun.html','w').write(wrap(PNA,SEO['nader']['title'],SEO['nader']['description'],'/cancun',LD_NA))
+PRIV=open('src/privacidad/privacidad.html',encoding='utf-8').read()
+open('privacidad.html','w').write(wrap(PRIV,'Aviso de privacidad · Papaya Slice','Aviso de privacidad de Papaya Slice: qué datos recabamos, para qué los usamos y cómo ejercer tus derechos ARCO.','/privacidad','{}'))
 open('google4708ea497496b16c.html','w').write('google-site-verification: google4708ea497496b16c.html')
 imgs=json.load(open('src/landing/imgs.json'))
 logo=Image.open(io.BytesIO(base64.b64decode(imgs['logo'].split(',')[1]))).convert('RGBA')
@@ -87,7 +91,7 @@ if not os.path.exists('apple-touch-icon.png'): icon(180,16).convert('RGB').save(
 if not os.path.exists('og.jpg'):
   og=Image.new('RGB',(1200,630),(240,122,69)); lw=Image.open(io.BytesIO(base64.b64decode(imgs['logo_w'].split(',')[1]))).convert('RGBA'); lw.thumbnail((900,480)); og.paste(lw,((1200-lw.width)//2,(630-lw.height)//2),lw); og.save('og.jpg',quality=88)
 open('robots.txt','w').write('User-agent: *\nAllow: /\nSitemap: https://papayaslice.com/sitemap.xml\n')
-open('sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>https://papayaslice.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n<url><loc>https://papayaslice.com/menu</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>\n<url><loc>https://papayaslice.com/playa-del-carmen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n<url><loc>https://papayaslice.com/cancun</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n</urlset>\n')
+open('sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>https://papayaslice.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n<url><loc>https://papayaslice.com/menu</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>\n<url><loc>https://papayaslice.com/playa-del-carmen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n<url><loc>https://papayaslice.com/cancun</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n<url><loc>https://papayaslice.com/privacidad</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>\n</urlset>\n')
 open('CNAME','w').write('papayaslice.com\n')
 open('404.html','w').write('<!doctype html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/"><title>Papaya Slice</title></head><body></body></html>')
 for f in ['_redirects','_headers']:
