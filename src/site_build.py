@@ -73,7 +73,9 @@ def wrap(body,title,desc,path,ld):
     return head+'\n'.join(headlines)+'\n'+PIXEL+'</head>\n<body>\n'+rest+'\n'+EVENTS+'</body>\n</html>\n'
 L=open('build/papaya-slice-landing.html').read().replace('https://claude.ai/artifact/DoMWeTromrd56uR4MHRPeL','/menu')
 M=open('build/papaya-slice-menu.html').read().replace('https://claude.ai/artifact/UMA9LHkZTeD8TuqugmA6Zt','/')
-open('index.html','w').write(wrap(L,SEO['inicio']['title'],SEO['inicio']['description'],'/',LD_HOME))
+# Verificación de dominio de Meta: solo en la página de inicio, dentro del <head>
+META_VERIF='<meta name="facebook-domain-verification" content="amp07e3miq16lu1dind4zwxx18heut" />\n'
+open('index.html','w').write(wrap(L,SEO['inicio']['title'],SEO['inicio']['description'],'/',LD_HOME).replace('</head>',META_VERIF+'</head>',1))
 open('menu.html','w').write(wrap(M,SEO['menu']['title'],SEO['menu']['description'],'/menu',LD_MENU))
 P38=open('build/loc-playa-del-carmen.html').read(); PNA=open('build/loc-cancun.html').read()
 open('playa-del-carmen.html','w').write(wrap(P38,SEO['38']['title'],SEO['38']['description'],'/playa-del-carmen',LD_38))
