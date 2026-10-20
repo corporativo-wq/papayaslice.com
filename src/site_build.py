@@ -1,22 +1,33 @@
 import json,base64,io,re,os,shutil
 from PIL import Image
-D='https://papayaslice.com'
 os.makedirs('.',exist_ok=True)
+# ---- todo sale de contenido.json (fuente única) ----
+C=json.load(open('contenido.json',encoding='utf-8'))
+S=C['sitio']; SEO=C['seo']; SUC=C['sucursales']
+D=S['dominio']
+DIAS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+def opening(h):
+    """Horario de contenido.json → OpeningHoursSpecification (agrupa días con el mismo horario, Lun→Dom)."""
+    grupos=[]
+    for d in [1,2,3,4,5,6,0]:
+        t=h[str(d)] if str(d) in h else h['default']
+        if t is None: continue
+        t=tuple(t)
+        for g in grupos:
+            if g[0]==t: g[1].append(DIAS[d]); break
+        else: grupos.append([t,[DIAS[d]]])
+    return [{"@type":"OpeningHoursSpecification","dayOfWeek":dias,"opens":t[0],"closes":t[1]} for t,dias in grupos]
+def rest(b):
+    x=b['schema']
+    return {"@type":"Restaurant","@id":D+"/#"+x['ld_id'],"name":x['ld_name'],"url":D+"/"+b['landing']['slug'],"image":D+"/og.jpg","telephone":b['tel'],"priceRange":"$$","servesCuisine":["Pizza","Italiana"],"sameAs":[S['instagram']],"menu":D+"/menu","acceptsReservations":"True","parentOrganization":{"@id":D+"/#org"},
+   "address":{"@type":"PostalAddress","streetAddress":x['calle_ld'],"addressLocality":x['localidad'],"addressRegion":"Quintana Roo","postalCode":x['cp'],"addressCountry":"MX"},
+   "geo":{"@type":"GeoCoordinates","latitude":x['geo']['lat'],"longitude":x['geo']['lng']},"hasMap":b['maps'],
+   "openingHoursSpecification":opening(b['hours'])}
 LD_HOME=json.dumps({
  "@context":"https://schema.org","@graph":[
-  {"@type":"Organization","@id":D+"/#org","name":"Papaya Slice","url":D+"/","logo":D+"/favicon.png","sameAs":["https://www.instagram.com/papayaslicemx"]},
-  {"@type":"WebSite","@id":D+"/#site","url":D+"/","name":"Papaya Slice","inLanguage":"es-MX","publisher":{"@id":D+"/#org"}},
-  {"@type":"Restaurant","@id":D+"/#av38","name":"Papaya Slice · Av. 38","url":D+"/playa-del-carmen","image":D+"/og.jpg","telephone":"+52 984 803 5648","priceRange":"$$","servesCuisine":["Pizza","Italiana"],"sameAs":["https://www.instagram.com/papayaslicemx"],"menu":D+"/menu","acceptsReservations":"True","parentOrganization":{"@id":D+"/#org"},
-   "address":{"@type":"PostalAddress","streetAddress":"Calle 38 entre 5a Av. y Calle Flamingos, Locales Miranda #4, Centro","addressLocality":"Playa del Carmen","addressRegion":"Quintana Roo","postalCode":"77710","addressCountry":"MX"},
-   "geo":{"@type":"GeoCoordinates","latitude":20.6345583,"longitude":-87.0643145},"hasMap":"https://www.google.com/maps/search/?api=1&query=Papaya%20Slice%20Playa%20del%20Carmen&query_place_id=ChIJNSS3HGtDTo8RPtVX0R9kA34",
-   "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"13:00","closes":"23:30"}]},
-  {"@type":"Restaurant","@id":D+"/#nader","name":"Papaya Slice · Náder","url":D+"/cancun","image":D+"/og.jpg","telephone":"+52 998 174 6115","priceRange":"$$","servesCuisine":["Pizza","Italiana"],"sameAs":["https://www.instagram.com/papayaslicemx"],"menu":D+"/menu","acceptsReservations":"True","parentOrganization":{"@id":D+"/#org"},
-   "address":{"@type":"PostalAddress","streetAddress":"Av. Carlos Náder 44, Centro","addressLocality":"Cancún","addressRegion":"Quintana Roo","postalCode":"77750","addressCountry":"MX"},
-   "geo":{"@type":"GeoCoordinates","latitude":21.1642827,"longitude":-86.8236381},"hasMap":"https://www.google.com/maps/search/?api=1&query=Papaya%20Slice%20Nader%20Cancun&query_place_id=ChIJP8gEC1ktTI8RI6subVZflxw",
-   "openingHoursSpecification":[
-     {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Sunday"],"opens":"14:00","closes":"22:00"},
-     {"@type":"OpeningHoursSpecification","dayOfWeek":["Thursday","Friday","Saturday"],"opens":"14:00","closes":"23:00"}]}
- ]},ensure_ascii=False)
+  {"@type":"Organization","@id":D+"/#org","name":S['nombre'],"url":D+"/","logo":D+"/favicon.png","sameAs":[S['instagram']]},
+  {"@type":"WebSite","@id":D+"/#site","url":D+"/","name":S['nombre'],"inLanguage":"es-MX","publisher":{"@id":D+"/#org"}}]+[rest(b) for b in SUC.values()]
+ },ensure_ascii=False)
 GRAPH=json.loads(LD_HOME)["@graph"]
 ORG=GRAPH[0]; R38=[x for x in GRAPH if x.get("@id")==D+"/#av38"][0]; RNA=[x for x in GRAPH if x.get("@id")==D+"/#nader"][0]
 def ld_loc(r,slug,city):
@@ -24,7 +35,7 @@ def ld_loc(r,slug,city):
     return json.dumps({"@context":"https://schema.org","@graph":[ORG,r,
       {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Papaya Slice","item":D+"/"},{"@type":"ListItem","position":2,"name":city,"item":D+"/"+slug}]}]},ensure_ascii=False)
 LD_38=ld_loc(R38,"playa-del-carmen","Playa del Carmen"); LD_NA=ld_loc(RNA,"cancun","Cancún")
-LD_MENU=json.dumps({"@context":"https://schema.org","@type":"Menu","@id":D+"/menu/#menu","name":"Menú Papaya Slice","url":D+"/menu","inLanguage":"es-MX","hasMenuSection":[{"@type":"MenuSection","name":n} for n in ["Especial del mes","Rebanadas","Pizzas completas","Focaccias","Para empezar","Ensaladas","Pastas","Postres","Bebidas"]]},ensure_ascii=False)
+LD_MENU=json.dumps({"@context":"https://schema.org","@type":"Menu","@id":D+"/menu/#menu","name":"Menú Papaya Slice","url":D+"/menu","inLanguage":"es-MX","hasMenuSection":[{"@type":"MenuSection","name":(m.get("short") or m["title"])["es"]} for m in C["menu"]]},ensure_ascii=False)
 # Eventos de conversión: cada clic en un elemento con data-ev se manda a window.dataLayer (lo lee GTM/GA4 cuando se instale)
 # ev: como_llegar | whatsapp | phone | order_rappi | order_uber | menu_nav | branch_page ; branch: playa-del-carmen | cancun
 EVENTS='''<script>
@@ -43,13 +54,13 @@ def wrap(body,title,desc,path,ld):
 <html lang="es-MX">
 <head>
 <meta charset="utf-8">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MET4FF2MEP"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-MET4FF2MEP');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={S['ga4_id']}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{S['ga4_id']}');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{D}{path}">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="google-site-verification" content="V9eAQSvRRDtoa64PSJ6_y-MzPrVYQnG66pzsdlKXZsg">
+<meta name="google-site-verification" content="{S['search_console_meta']}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Papaya Slice"><meta property="og:locale" content="es_MX">
 <meta property="og:title" content="{title}"><meta property="og:description" content="{desc}">
 <meta property="og:url" content="{D}{path}"><meta property="og:image" content="{D}/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
@@ -60,18 +71,21 @@ def wrap(body,title,desc,path,ld):
     return head+'\n'.join(headlines)+'\n</head>\n<body>\n'+rest+'\n'+EVENTS+'</body>\n</html>\n'
 L=open('build/papaya-slice-landing.html').read().replace('https://claude.ai/artifact/DoMWeTromrd56uR4MHRPeL','/menu')
 M=open('build/papaya-slice-menu.html').read().replace('https://claude.ai/artifact/UMA9LHkZTeD8TuqugmA6Zt','/')
-open('index.html','w').write(wrap(L,'Papaya Slice · Pizza de masa madre en Playa del Carmen y Cancún','Pizzería en Playa del Carmen (Calle 38) y Cancún (Av. Náder). Rebanadas estilo NY y Detroit, pizzas completas, focaccias de masa madre de 72 h y spritz. Reserva por WhatsApp o pide por Rappi y Uber Eats.','/',LD_HOME))
-open('menu.html','w').write(wrap(M,'Menú y precios · Papaya Slice','Menú completo de Papaya Slice con precios en MXN: rebanadas NY y Detroit, pizzas completas, focaccias de masa madre, pastas, postres, cerveza artesanal y spritz. Playa del Carmen y Cancún.','/menu',LD_MENU))
+open('index.html','w').write(wrap(L,SEO['inicio']['title'],SEO['inicio']['description'],'/',LD_HOME))
+open('menu.html','w').write(wrap(M,SEO['menu']['title'],SEO['menu']['description'],'/menu',LD_MENU))
 P38=open('build/loc-playa-del-carmen.html').read(); PNA=open('build/loc-cancun.html').read()
-open('playa-del-carmen.html','w').write(wrap(P38,'Pizzería en Playa del Carmen · Papaya Slice Calle 38','Papaya Slice en Playa del Carmen: pizza de masa madre de 72 h por rebanada o completa en Calle 38 entre 5a Av. y Flamingos. Horario, cómo llegar, WhatsApp, Rappi y Uber Eats.','/playa-del-carmen',LD_38))
-open('cancun.html','w').write(wrap(PNA,'Pizzería en Cancún centro · Papaya Slice Av. Náder','Papaya Slice en Cancún: pizza de masa madre de 72 h por rebanada o completa en Av. Carlos Náder 44, Centro. Horario, cómo llegar, WhatsApp y Rappi.','/cancun',LD_NA))
+open('playa-del-carmen.html','w').write(wrap(P38,SEO['38']['title'],SEO['38']['description'],'/playa-del-carmen',LD_38))
+open('cancun.html','w').write(wrap(PNA,SEO['nader']['title'],SEO['nader']['description'],'/cancun',LD_NA))
 open('google4708ea497496b16c.html','w').write('google-site-verification: google4708ea497496b16c.html')
 imgs=json.load(open('src/landing/imgs.json'))
 logo=Image.open(io.BytesIO(base64.b64decode(imgs['logo'].split(',')[1]))).convert('RGBA')
 def icon(size,pad):
     c=Image.new('RGBA',(size,size),(255,255,255,255)); l=logo.copy(); l.thumbnail((size-2*pad,size-2*pad)); c.paste(l,((size-l.width)//2,(size-l.height)//2),l); return c
-icon(192,18).save('favicon.png'); icon(180,16).convert('RGB').save('apple-touch-icon.png')
-og=Image.new('RGB',(1200,630),(240,122,69)); lw=Image.open(io.BytesIO(base64.b64decode(imgs['logo_w'].split(',')[1]))).convert('RGBA'); lw.thumbnail((900,480)); og.paste(lw,((1200-lw.width)//2,(630-lw.height)//2),lw); og.save('og.jpg',quality=88)
+# íconos y og.jpg solo se generan si no existen (así un build no reescribe binarios idénticos); bórralos para regenerarlos
+if not os.path.exists('favicon.png'): icon(192,18).save('favicon.png')
+if not os.path.exists('apple-touch-icon.png'): icon(180,16).convert('RGB').save('apple-touch-icon.png')
+if not os.path.exists('og.jpg'):
+  og=Image.new('RGB',(1200,630),(240,122,69)); lw=Image.open(io.BytesIO(base64.b64decode(imgs['logo_w'].split(',')[1]))).convert('RGBA'); lw.thumbnail((900,480)); og.paste(lw,((1200-lw.width)//2,(630-lw.height)//2),lw); og.save('og.jpg',quality=88)
 open('robots.txt','w').write('User-agent: *\nAllow: /\nSitemap: https://papayaslice.com/sitemap.xml\n')
 open('sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>https://papayaslice.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n<url><loc>https://papayaslice.com/menu</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>\n<url><loc>https://papayaslice.com/playa-del-carmen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n<url><loc>https://papayaslice.com/cancun</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n</urlset>\n')
 open('CNAME','w').write('papayaslice.com\n')
@@ -83,7 +97,7 @@ print('ok')
 # ---- externalize inline images into /img/ ----
 import hashlib
 os.makedirs('img',exist_ok=True)
-seen={}
+seen={}; NUEVAS=set()  # imágenes nuevas de este build (las existentes no se reescriben)
 def ext_images(path):
     h=open(path).read()
     def rep(m):
@@ -91,7 +105,8 @@ def ext_images(path):
         key=hashlib.sha1(b64.encode()).hexdigest()[:10]
         if key not in seen:
             ext={'png':'png','jpeg':'jpg','webp':'webp'}[mime]
-            fn=f'img/{key}.{ext}'; open('./'+fn,'wb').write(base64.b64decode(b64)); seen[key]=fn
+            fn=f'img/{key}.{ext}'; seen[key]=fn
+            if not os.path.exists('./'+fn): open('./'+fn,'wb').write(base64.b64decode(b64)); NUEVAS.add(fn)
         return '/'+seen[key]
     h2=re.sub(r'data:image/(png|jpeg|webp);base64,([A-Za-z0-9+/=]+)',rep,h)
     open(path,'w').write(h2); print(path,len(h)//1024,'KB ->',len(h2)//1024,'KB')
@@ -99,8 +114,8 @@ ext_images('index.html'); ext_images('menu.html'); ext_images('playa-del-carmen.
 print(len(seen),'imágenes', sum(os.path.getsize('./'+f) for f in seen.values())//1024,'KB')
 
 # ---- recomprimir imágenes del sitio (ligeras para móvil) ----
-for f in os.listdir('img'):
-    p='img/'+f; s0=os.path.getsize(p)
+for p in sorted(NUEVAS):
+    f=os.path.basename(p); s0=os.path.getsize(p)
     try:
         if f.endswith('.jpg'):
             im=Image.open(p).convert('RGB'); im.thumbnail((900,1350)); b=io.BytesIO(); im.save(b,'JPEG',quality=76,optimize=True,progressive=True)

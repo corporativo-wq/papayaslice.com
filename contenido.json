@@ -1,0 +1,1300 @@
+{
+ "_nota": "Fuente única de verdad del sitio papayaslice.com. Edita aquí y corre ./build.sh. Los HTML de la raíz se generan; no se editan a mano. Un campo null no se muestra.",
+ "sitio": {
+  "dominio": "https://papayaslice.com",
+  "nombre": "Papaya Slice",
+  "ga4_id": "G-MET4FF2MEP",
+  "search_console_meta": "V9eAQSvRRDtoa64PSJ6_y-MzPrVYQnG66pzsdlKXZsg",
+  "instagram": "https://www.instagram.com/papayaslicemx",
+  "menu_url": "/menu",
+  "wati": "https://wa.me/529841798683?text=Hola%20Papaya%20Slice%2C%20quiero%20reservar"
+ },
+ "seo": {
+  "inicio": {
+   "title": "Papaya Slice · Pizza de masa madre en Playa del Carmen y Cancún",
+   "description": "Pizzería en Playa del Carmen (Calle 38) y Cancún (Av. Náder). Rebanadas estilo NY y Detroit, pizzas completas, focaccias de masa madre de 72 h y spritz. Reserva por WhatsApp o pide por Rappi y Uber Eats."
+  },
+  "menu": {
+   "title": "Menú y precios · Papaya Slice",
+   "description": "Menú completo de Papaya Slice con precios en MXN: rebanadas NY y Detroit, pizzas completas, focaccias de masa madre, pastas, postres, cerveza artesanal y spritz. Playa del Carmen y Cancún."
+  },
+  "38": {
+   "title": "Pizzería en Playa del Carmen · Papaya Slice Calle 38",
+   "description": "Papaya Slice en Playa del Carmen: pizza de masa madre de 72 h por rebanada o completa en Calle 38 entre 5a Av. y Flamingos. Horario, cómo llegar, WhatsApp, Rappi y Uber Eats."
+  },
+  "nader": {
+   "title": "Pizzería en Cancún centro · Papaya Slice Av. Náder",
+   "description": "Papaya Slice en Cancún: pizza de masa madre de 72 h por rebanada o completa en Av. Carlos Náder 44, Centro. Horario, cómo llegar, WhatsApp y Rappi."
+  }
+ },
+ "portada": {
+  "mq1": [
+   {
+    "es": "Todo lo que necesitas es una rebanada",
+    "en": "All you need is a slice"
+   },
+   {
+    "es": "Masa madre · 72 h",
+    "en": "Sourdough · 72 h"
+   },
+   "NY · Detroit · Tokyo",
+   {
+    "es": "Playa del Carmen · Cancún",
+    "en": "Playa del Carmen · Cancún"
+   }
+  ],
+  "mq2": [
+   {
+    "es": "Reserva por WhatsApp",
+    "en": "Reserve on WhatsApp"
+   },
+   {
+    "es": "Pide por Rappi o Uber Eats",
+    "en": "Order on Rappi or Uber Eats"
+   },
+   {
+    "es": "Pizzas completas para 4–6",
+    "en": "Whole pizzas for 4–6"
+   }
+  ],
+  "dishes": [
+   {
+    "img": "sl_jamon",
+    "anchor": "rebanadas",
+    "kind": {
+     "es": "Rebanada NY",
+     "en": "NY slice"
+    },
+    "n": {
+     "es": "Jamón ahumado",
+     "en": "Smoked ham"
+    },
+    "d": {
+     "es": "Mozzarella, jamón ahumado, pesto de pistache y burrata",
+     "en": "Mozzarella, smoked ham, pistachio pesto, burrata"
+    },
+    "p": 130
+   },
+   {
+    "img": "tk_cherry",
+    "anchor": "especial",
+    "kind": {
+     "es": "Especial del mes · Tokyo Style",
+     "en": "Monthly special · Tokyo Style"
+    },
+    "n": {
+     "es": "Cherry & pistache",
+     "en": "Cherry & pistachio"
+    },
+    "d": {
+     "es": "Pomodoro de cherrys, mozzarella, pesto de pistache",
+     "en": "Cherry tomato pomodoro, mozzarella, pistachio pesto"
+    },
+    "p": 175
+   },
+   {
+    "img": "tk_pepperoni",
+    "anchor": "especial",
+    "kind": {
+     "es": "Tokyo Style",
+     "en": "Tokyo Style"
+    },
+    "n": "Pepperoni",
+    "d": {
+     "es": "Pomodoro, mozzarella, mucho pepperoni",
+     "en": "Pomodoro, mozzarella, lots of pepperoni"
+    },
+    "p": 155
+   },
+   {
+    "img": "f2",
+    "cover": true,
+    "anchor": "focaccias",
+    "kind": {
+     "es": "Focaccia de masa madre",
+     "en": "Sourdough focaccia"
+    },
+    "n": {
+     "es": "Jamón ahumado & aguacate",
+     "en": "Smoked ham & avocado"
+    },
+    "d": {
+     "es": "Jamón ahumado, aguacate, aceite de trufa",
+     "en": "Smoked ham, avocado, truffle oil"
+    },
+    "p": 180
+   },
+   {
+    "img": "pz_jamon",
+    "anchor": "completas",
+    "kind": {
+     "es": "Pizza completa · 8 rebanadas",
+     "en": "Whole pizza · 8 slices"
+    },
+    "n": {
+     "es": "Jamón, pesto y burrata",
+     "en": "Ham, pesto & burrata"
+    },
+    "d": {
+     "es": "Para 4–6 personas",
+     "en": "Serves 4–6"
+    },
+    "p": 690
+   },
+   {
+    "img": "panacotta",
+    "cover": true,
+    "anchor": "postres",
+    "kind": {
+     "es": "Postre",
+     "en": "Dessert"
+    },
+    "n": {
+     "es": "Panacotta & mango",
+     "en": "Panna cotta & mango"
+    },
+    "d": {
+     "es": "Nata premium, coulis de mango de Colima",
+     "en": "Premium cream, Colima mango coulis"
+    },
+    "p": 120
+   }
+  ],
+  "quotes": [
+   {
+    "t": {
+     "es": "La mejor rebanada de Playa. La orilla cruje y adentro es puro aire.",
+     "en": "Best slice in Playa. The crust crackles and inside it's pure air."
+    },
+    "a": "Reseña de ejemplo"
+   },
+   {
+    "t": {
+     "es": "Pedimos la Tokyo Style de pistache y no volvimos a hablar hasta terminarla.",
+     "en": "We ordered the pistachio Tokyo Style and didn't speak again until it was gone."
+    },
+    "a": "Reseña de ejemplo"
+   },
+   {
+    "t": {
+     "es": "Focaccia de masa madre con jamón y aguacate. Fin del debate.",
+     "en": "Sourdough focaccia with ham and avocado. End of discussion."
+    },
+    "a": "Reseña de ejemplo"
+   },
+   {
+    "t": {
+     "es": "Por rebanada puedes probar de todo. Fuimos cinco y pedimos ocho distintas.",
+     "en": "By the slice you can try everything. Five of us ordered eight different ones."
+    },
+    "a": "Reseña de ejemplo"
+   }
+  ]
+ },
+ "sucursales": {
+  "38": {
+   "page": "playa-del-carmen",
+   "name": "Av. 38",
+   "city": "Playa del Carmen",
+   "label": {
+    "es": "Playa del Carmen · Av. 38",
+    "en": "Playa del Carmen · Av. 38"
+   },
+   "addr": {
+    "es": "Calle 38 entre 5a Av. y Calle Flamingos, Locales Miranda #4, Centro, Playa del Carmen",
+    "en": "Calle 38 between 5th Ave. and Calle Flamingos, Locales Miranda #4, Centro, Playa del Carmen"
+   },
+   "tel": "+52 984 803 5648",
+   "maps": "https://www.google.com/maps/search/?api=1&query=Papaya%20Slice%20Playa%20del%20Carmen&query_place_id=ChIJNSS3HGtDTo8RPtVX0R9kA34",
+   "wa": "https://wa.me/529841798683?text=Hola%20Papaya%20Slice%2C%20quiero%20reservar",
+   "rappi": "https://www.rappi.com.mx/restaurantes/1930135819-papaya-slice-mx",
+   "uber": "https://www.ubereats.com/mx/store/papaya-slice-mx-riviera-maya/WmePdADXWy-KCQKVOP7y5Q",
+   "hours": {
+    "default": [
+     "13:00",
+     "23:30"
+    ]
+   },
+   "rating": "4.7",
+   "reviews": "1,002",
+   "todo": null,
+   "landing": {
+    "slug": "playa-del-carmen",
+    "h1": {
+     "es": "Pizza de masa madre en Playa del Carmen",
+     "en": "Sourdough pizza in Playa del Carmen"
+    },
+    "intro": {
+     "es": "Papaya Slice Av. 38 está en la Calle 38, entre la Quinta Avenida y la Calle Flamingos, en el tramo norte de la Quinta donde Playa se vuelve más tranquila y arbolada. Rebanadas estilo Nueva York, charolas Detroit y nuestra pizza Tokyo Style, todo con masa madre de 72 horas de fermentación, a unos pasos de la playa.",
+     "en": "Papaya Slice Av. 38 sits on Calle 38, between Quinta Avenida and Calle Flamingos, on the quieter, leafier north end of Fifth Avenue. New York slices, Detroit pans and our Tokyo Style pizza, all made with 72-hour sourdough, a short walk from the beach."
+    },
+    "how": {
+     "es": "Estamos en los Locales Miranda #4. Si vienes caminando por la Quinta Avenida, da vuelta en la Calle 38 hacia la playa; si vienes en coche, la Calle 38 conecta con la Avenida 10.",
+     "en": "We are at Locales Miranda #4. Walking along Quinta Avenida, turn onto Calle 38 towards the beach; by car, Calle 38 connects with Avenida 10."
+    },
+    "delivery": {
+     "es": "Pide a domicilio en Playa del Carmen por Rappi o Uber Eats. Las pizzas completas (para 4 a 6 personas) también se pueden reservar por WhatsApp para recoger en el local.",
+     "en": "Order delivery in Playa del Carmen on Rappi or Uber Eats. Whole pizzas (for 4 to 6 people) can also be reserved on WhatsApp for pickup."
+    },
+    "other": "nader",
+    "other_txt": {
+     "es": "También estamos en Cancún, en la Av. Náder.",
+     "en": "We are also in Cancún, on Av. Náder."
+    },
+    "img": "/img/a7db2fe09c.webp",
+    "img_alt": {
+     "es": "Pizza de masa madre Papaya Slice en Playa del Carmen",
+     "en": "Papaya Slice sourdough pizza in Playa del Carmen"
+    }
+   },
+   "schema": {
+    "ld_id": "av38",
+    "ld_name": "Papaya Slice · Av. 38",
+    "calle_ld": "Calle 38 entre 5a Av. y Calle Flamingos, Locales Miranda #4, Centro",
+    "localidad": "Playa del Carmen",
+    "cp": "77710",
+    "geo": {
+     "lat": 20.6345583,
+     "lng": -87.0643145
+    }
+   }
+  },
+  "nader": {
+   "page": "cancun",
+   "name": "Náder",
+   "city": "Cancún",
+   "label": {
+    "es": "Cancún · Av. Náder",
+    "en": "Cancún · Av. Náder"
+   },
+   "addr": {
+    "es": "Av. Carlos Náder 44, Centro, Cancún",
+    "en": "Av. Carlos Náder 44, Centro, Cancún"
+   },
+   "tel": "+52 998 174 6115",
+   "maps": "https://www.google.com/maps/search/?api=1&query=Papaya%20Slice%20Nader%20Cancun&query_place_id=ChIJP8gEC1ktTI8RI6subVZflxw",
+   "wa": "https://wa.me/529981746115?text=Hola%20Papaya%20Slice%20N%C3%A1der%2C%20quiero%20reservar",
+   "rappi": "https://www.rappi.com.mx/restaurantes/1930378884-papaya-slice-mx",
+   "uber": null,
+   "hours": {
+    "default": [
+     "14:00",
+     "22:00"
+    ],
+    "1": null,
+    "4": [
+     "14:00",
+     "23:00"
+    ],
+    "5": [
+     "14:00",
+     "23:00"
+    ],
+    "6": [
+     "14:00",
+     "23:00"
+    ]
+   },
+   "rating": "4.8",
+   "reviews": "262",
+   "todo": null,
+   "landing": {
+    "slug": "cancun",
+    "h1": {
+     "es": "Pizza de masa madre en Cancún",
+     "en": "Sourdough pizza in Cancún"
+    },
+    "intro": {
+     "es": "Papaya Slice Náder está en la Avenida Carlos Náder 44, en el centro de Cancún, a una cuadra de la Avenida Tulum. Es nuestra segunda casa: la misma masa madre de 72 horas, rebanadas estilo Nueva York, charolas Detroit y la pizza Tokyo Style, ahora para quienes viven y trabajan en el centro.",
+     "en": "Papaya Slice Náder is at Avenida Carlos Náder 44 in downtown Cancún, one block from Avenida Tulum. It is our second home: the same 72-hour sourdough, New York slices, Detroit pans and Tokyo Style pizza, now for the people who live and work downtown."
+    },
+    "how": {
+     "es": "La Avenida Náder corre paralela a la Avenida Tulum, en la zona centro. Búscanos en el número 44.",
+     "en": "Avenida Náder runs parallel to Avenida Tulum in the downtown area. Look for number 44."
+    },
+    "delivery": {
+     "es": "Pide a domicilio en Cancún por Rappi. Para pizzas completas (para 4 a 6 personas) o pedidos para recoger, escríbenos por WhatsApp.",
+     "en": "Order delivery in Cancún on Rappi. For whole pizzas (for 4 to 6 people) or pickup orders, message us on WhatsApp."
+    },
+    "other": "38",
+    "other_txt": {
+     "es": "También estamos en Playa del Carmen, en la Calle 38.",
+     "en": "We are also in Playa del Carmen, on Calle 38."
+    },
+    "img": "/img/9a2aa7b216.webp",
+    "img_alt": {
+     "es": "Pizza Tokyo Style de Papaya Slice en Cancún",
+     "en": "Papaya Slice Tokyo Style pizza in Cancún"
+    }
+   },
+   "schema": {
+    "ld_id": "nader",
+    "ld_name": "Papaya Slice · Náder",
+    "calle_ld": "Av. Carlos Náder 44, Centro",
+    "localidad": "Cancún",
+    "cp": "77750",
+    "geo": {
+     "lat": 21.1642827,
+     "lng": -86.8236381
+    }
+   }
+  }
+ },
+ "menu": [
+  {
+   "id": "especial",
+   "kind": "featured",
+   "short": {
+    "es": "Especial del mes",
+    "en": "Monthly special"
+   },
+   "eyebrow": {
+    "es": "Especial del mes · Agosto",
+    "en": "Monthly special · August"
+   },
+   "title": "Tokyo Style",
+   "sub": {
+    "es": "Nuestra nueva era de pizza",
+    "en": "A new era of pizza"
+   },
+   "traits": [
+    {
+     "es": "Masa madre",
+     "en": "Sourdough"
+    },
+    {
+     "es": "Doble fermentación 72 h",
+     "en": "72-hour double fermentation"
+    },
+    {
+     "es": "Recién horneada",
+     "en": "Fresh out of the oven"
+    },
+    {
+     "es": "Fluffy & ligera",
+     "en": "Fluffy & light"
+    },
+    {
+     "es": "Jugosa & sabrosa",
+     "en": "Juicy & flavorful"
+    }
+   ],
+   "note": {
+    "es": "Disponibilidad limitada. Las imágenes son ilustrativas.",
+    "en": "Limited availability. Photos are illustrative."
+   },
+   "items": [
+    {
+     "n": {
+      "es": "Salchicha italiana & pesto",
+      "en": "Italian sausage & pesto"
+     },
+     "d": {
+      "es": "Pesto, burrata, salchicha italiana",
+      "en": "Basil pesto, italian sausage, burrata cheese"
+     },
+     "p": 195,
+     "img": "tk_salchicha",
+     "cut": true
+    },
+    {
+     "n": {
+      "es": "Cherry & pistache",
+      "en": "Cherry & pistachio"
+     },
+     "d": {
+      "es": "Pomodoro de cherrys, queso mozzarella, pesto de pistache",
+      "en": "Cherry tomato pomodoro, mozzarella cheese, pistachio pesto"
+     },
+     "p": 175,
+     "img": "tk_cherry",
+     "cut": true
+    },
+    {
+     "n": {
+      "es": "Tartufata",
+      "en": "Tartufata"
+     },
+     "d": {
+      "es": "Tartufata, queso, miel, aceite de trufa, crema de trufa",
+      "en": "Truffle sauce, mozzarella cheese, olive oil, truffle cream, honey"
+     },
+     "p": 165,
+     "img": "tk_tartufata",
+     "cut": true
+    },
+    {
+     "n": {
+      "es": "Pepperoni",
+      "en": "Pepperoni"
+     },
+     "d": {
+      "es": "Pomodoro, queso mozzarella, mucho pepperoni",
+      "en": "Pomodoro, mozzarella cheese, lots of pepperoni"
+     },
+     "p": 155,
+     "img": "tk_pepperoni",
+     "cut": true
+    }
+   ]
+  },
+  {
+   "id": "rebanadas",
+   "kind": "list",
+   "title": {
+    "es": "Rebanadas de pizza",
+    "en": "Pizza slices"
+   },
+   "short": {
+    "es": "Rebanadas",
+    "en": "Slices"
+   },
+   "styles": [
+    {
+     "es": "Estilo NY · delgada",
+     "en": "NY style · thin"
+    },
+    {
+     "es": "Estilo Detroit · gruesa, de charola",
+     "en": "Detroit style · thick, pan-baked"
+    }
+   ],
+   "note": {
+    "es": "Elige tu estilo. Mismo precio.",
+    "en": "Choose your style. Same price."
+   },
+   "items": [
+    {
+     "n": {
+      "es": "Margarita",
+      "en": "Margherita"
+     },
+     "d": {
+      "es": "Tomates italianos, mozzarella, albahaca",
+      "en": "Italian tomatoes, mozzarella cheese, basil"
+     },
+     "p": 110
+    },
+    {
+     "n": "Pepperoni",
+     "d": {
+      "es": "Tomates italianos, mozzarella, pepperoni",
+      "en": "Italian tomatoes, mozzarella cheese, pepperoni"
+     },
+     "p": 115
+    },
+    {
+     "n": {
+      "es": "Cebolla caramelizada & pistache",
+      "en": "Caramelized onion & pistachio"
+     },
+     "d": {
+      "es": "Queso mozzarella, cebolla caramelizada, pistache",
+      "en": "Mozzarella cheese, caramelized onions, pistachio"
+     },
+     "p": 115,
+     "nuevo": true
+    },
+    {
+     "n": {
+      "es": "Jamón ahumado",
+      "en": "Smoked ham"
+     },
+     "d": {
+      "es": "Mozzarella, jamón ahumado, pesto de pistache y burrata",
+      "en": "Mozzarella cheese, smoked ham, pistachio pesto, burrata cheese"
+     },
+     "p": 130,
+     "img": "sl_jamon",
+     "cut": true
+    },
+    {
+     "n": "Bacon lovers",
+     "d": {
+      "es": "Pomodoro, mozzarella, mermelada de tocino, burrata derretida, pancetta",
+      "en": "Italian tomatoes, mozzarella, bacon jam, melted burrata, pancetta"
+     },
+     "p": 130,
+     "nuevo": true
+    },
+    {
+     "n": {
+      "es": "Hawaiana",
+      "en": "Hawaiian"
+     },
+     "d": {
+      "es": "Tomates italianos, mozzarella, pancetta, piña",
+      "en": "Italian tomatoes, mozzarella, pancetta, pineapple"
+     },
+     "p": 135
+    },
+    {
+     "n": {
+      "es": "Trufa & hongos",
+      "en": "Truffle & mushrooms"
+     },
+     "d": {
+      "es": "Mozzarella, crema de trufa, setas & hongos",
+      "en": "Mixed mushrooms, mozzarella cheese, truffle cream"
+     },
+     "p": 135
+    },
+    {
+     "n": {
+      "es": "Trufa & pancetta",
+      "en": "Truffle & pancetta"
+     },
+     "d": {
+      "es": "Mozzarella, crema de trufa, pancetta ahumada",
+      "en": "Mozzarella, truffle cream, smoked pancetta"
+     },
+     "p": 145
+    },
+    {
+     "n": {
+      "es": "Arúgula & burrata",
+      "en": "Arugula & burrata"
+     },
+     "d": {
+      "es": "Arúgula, burrata, jamón ahumado, mozzarella, pomodoro",
+      "en": "Arugula, burrata cheese & smoked ham, on top of a margherita slice"
+     },
+     "p": 145,
+     "nuevo": true
+    },
+    {
+     "n": "PPP",
+     "d": {
+      "es": "Tomates italianos, mozzarella, pepperoni, burrata, miel spicy",
+      "en": "Italian tomatoes, mozzarella cheese, pepperoni, burrata cheese, hot honey"
+     },
+     "p": 150
+    },
+    {
+     "n": "Meat loooovers",
+     "d": {
+      "es": "Pomodoro, mozzarella, pepperoni, salchicha italiana, pancetta, albóndigas, pomodoro extra",
+      "en": "Italian tomatoes, mozzarella, pepperoni, italian sausage, meatballs, pancetta, extra tomato sauce"
+     },
+     "p": 165
+    }
+   ],
+   "pills": {
+    "title": {
+     "es": "Toppings & dips · pasa tu pizza al siguiente nivel",
+     "en": "Toppings & dips · take your pizza to the next level"
+    },
+    "p": 30,
+    "opts": [
+     {
+      "n": {
+       "es": "Arúgula",
+       "en": "Arugula"
+      },
+      "g": "20 g"
+     },
+     {
+      "n": {
+       "es": "Aceite de trufa",
+       "en": "Truffle oil"
+      },
+      "g": "10 g"
+     },
+     {
+      "n": {
+       "es": "Hongos al ajillo",
+       "en": "Garlic mushrooms"
+      },
+      "g": "70 g"
+     },
+     {
+      "n": {
+       "es": "Mermelada de tocino",
+       "en": "Bacon jam"
+      },
+      "g": "30 g"
+     },
+     {
+      "n": {
+       "es": "Pesto de pistache",
+       "en": "Pistachio pesto"
+      },
+      "g": "20 g"
+     },
+     {
+      "n": {
+       "es": "Miel habanero",
+       "en": "Habanero honey"
+      },
+      "g": "20 g"
+     },
+     {
+      "n": {
+       "es": "Crema de burrata",
+       "en": "Burrata cream"
+      },
+      "g": "90 g"
+     }
+    ]
+   }
+  },
+  {
+   "id": "completas",
+   "kind": "list",
+   "title": {
+    "es": "Pizzas completas",
+    "en": "Whole pizzas"
+   },
+   "short": {
+    "es": "Pizzas completas",
+    "en": "Whole pizzas"
+   },
+   "sub": {
+    "es": "Detroit o NY · 8 rebanadas · para 4–6 personas",
+    "en": "Detroit or NY · 8 slices · serves 4–6"
+   },
+   "items": [
+    {
+     "n": {
+      "es": "Margarita",
+      "en": "Margherita"
+     },
+     "p": 570
+    },
+    {
+     "n": "Pepperoni",
+     "p": 620
+    },
+    {
+     "n": {
+      "es": "Hawaiana",
+      "en": "Hawaiian"
+     },
+     "p": 650
+    },
+    {
+     "n": {
+      "es": "Trufa y hongos",
+      "en": "Truffle & mushrooms"
+     },
+     "p": 650
+    },
+    {
+     "n": {
+      "es": "Jamón, pesto y burrata",
+      "en": "Ham, pesto & burrata"
+     },
+     "d": {
+      "es": "Mozzarella, jamón ahumado, pesto de pistache, burrata, albahaca",
+      "en": "Mozzarella, smoked ham, pistachio pesto, burrata, basil"
+     },
+     "p": 690,
+     "img": "pz_jamon",
+     "cut": true
+    }
+   ]
+  },
+  {
+   "id": "focaccias",
+   "kind": "list",
+   "title": {
+    "es": "Focaccias de masa madre",
+    "en": "Sourdough focaccias"
+   },
+   "short": {
+    "es": "Focaccias",
+    "en": "Focaccias"
+   },
+   "note": {
+    "es": "Elige tu focaccia: fresca (crema de burrata) ó horneada (mozzarella & cheddar).",
+    "en": "Choose your focaccia: fresh (burrata cream) or baked (mozzarella & cheddar)."
+   },
+   "items": [
+    {
+     "num": 1,
+     "n": {
+      "es": "Meatballs & pomodoro",
+      "en": "Meatballs & pomodoro"
+     },
+     "d": {
+      "es": "Focaccia de masa madre, meatballs, mucha salsa pomodoro",
+      "en": "Sourdough focaccia, meatballs, pomodoro sauce"
+     },
+     "p": 250,
+     "img": "f1"
+    },
+    {
+     "num": 2,
+     "n": {
+      "es": "Jamón ahumado & aguacate",
+      "en": "Smoked ham & avocado"
+     },
+     "d": {
+      "es": "Focaccia de masa madre, jamón ahumado, aguacate, aceite de trufa",
+      "en": "Sourdough focaccia, smoked ham, avocado, truffle oil"
+     },
+     "p": 180,
+     "img": "f2"
+    },
+    {
+     "num": 3,
+     "n": {
+      "es": "Jamón ahumado & pesto",
+      "en": "Smoked ham & pesto"
+     },
+     "d": {
+      "es": "Focaccia de masa madre, jamón ahumado, pesto",
+      "en": "Sourdough focaccia, smoked ham, basil pesto"
+     },
+     "p": 180,
+     "img": "f3"
+    },
+    {
+     "num": 4,
+     "n": {
+      "es": "Pancetta, jamón ahumado, cebolla & miel",
+      "en": "Pancetta, smoked ham, onion & honey"
+     },
+     "d": {
+      "es": "Focaccia de masa madre, pancetta, jamón ahumado, miel picante, cebolla caramelizada",
+      "en": "Sourdough focaccia, italian pancetta, smoked ham, hot honey, caramelized onions"
+     },
+     "p": 250
+    },
+    {
+     "num": 5,
+     "n": {
+      "es": "Veggie mix & pesto rojo",
+      "en": "Veggie mix & red pesto"
+     },
+     "d": {
+      "es": "Focaccia de masa madre, aguacate, pesto de tomate deshidratado, arúgula, reducción de balsámico",
+      "en": "Sourdough focaccia, avocado, red pesto, arugula, balsamic glaze"
+     },
+     "p": 180,
+     "img": "f5",
+     "land": true
+    },
+    {
+     "num": 6,
+     "n": {
+      "es": "Jamón ahumado, trufa & miel",
+      "en": "Smoked ham, truffle & honey"
+     },
+     "d": {
+      "es": "Focaccia de masa madre, jamón ahumado, tartufata italiana, miel picante",
+      "en": "Sourdough focaccia, smoked ham, italian truffle, hot honey"
+     },
+     "p": 180,
+     "img": "f6"
+    }
+   ],
+   "pills": {
+    "title": {
+     "es": "Extras",
+     "en": "Extras"
+    },
+    "p": 30,
+    "opts": [
+     {
+      "n": {
+       "es": "Aguacate",
+       "en": "Avocado"
+      }
+     },
+     {
+      "n": {
+       "es": "Hot honey",
+       "en": "Hot honey"
+      }
+     },
+     {
+      "n": {
+       "es": "Arúgula",
+       "en": "Arugula"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "entradas",
+   "kind": "list",
+   "title": {
+    "es": "Para empezar",
+    "en": "To start"
+   },
+   "short": {
+    "es": "Para empezar",
+    "en": "Starters"
+   },
+   "items": [
+    {
+     "n": {
+      "es": "Tomates cherry & burrata al horno",
+      "en": "Baked cherry tomatoes & burrata"
+     },
+     "d": {
+      "es": "Tomates cherry rostizados, burrata fresca, albahaca, aceite de oliva",
+      "en": "Roasted cherry tomatoes, fresh burrata, basil, olive oil"
+     },
+     "p": 90,
+     "nuevo": true,
+     "img": "tomates"
+    },
+    {
+     "n": {
+      "es": "Meatballs",
+      "en": "Meatballs"
+     },
+     "d": {
+      "es": "Carne molida 100% angus, parmesano, aceite de oliva. Elige tu salsa: pesto, spicy vodka o trufa",
+      "en": "100% angus beef, parmesan, olive oil. Choose your sauce: pesto, spicy vodka or truffle"
+     },
+     "p": 160
+    }
+   ]
+  },
+  {
+   "id": "ensaladas",
+   "kind": "list",
+   "title": {
+    "es": "Ensaladas",
+    "en": "Salads"
+   },
+   "price": 130,
+   "items": [
+    {
+     "n": {
+      "es": "Burrata y trufa",
+      "en": "Burrata & truffle"
+     },
+     "d": {
+      "es": "Arúgula baby, pistache, reducción de balsámico, aceite de trufa, burrata, láminas de parmesano",
+      "en": "Baby arugula, pistachio, balsamic glaze, truffle oil, burrata, parmesan shavings"
+     },
+     "nuevo": true
+    },
+    {
+     "n": {
+      "es": "Arúgula & jamón ahumado",
+      "en": "Arugula & smoked ham"
+     },
+     "d": {
+      "es": "Arúgula baby, pesto rojo, reducción de balsámico, jamón ahumado, nueces de la India tostadas",
+      "en": "Baby arugula, red pesto, balsamic glaze, smoked ham, toasted cashews"
+     },
+     "nuevo": true
+    }
+   ]
+  },
+  {
+   "id": "pastas",
+   "kind": "pasta",
+   "title": {
+    "es": "Pastas",
+    "en": "Pastas"
+   },
+   "price": 200,
+   "sub": {
+    "es": "Arma la tuya en 3 pasos",
+    "en": "Build yours in 3 steps"
+   },
+   "recLabel": {
+    "es": "Recomendamos",
+    "en": "We recommend"
+   },
+   "steps": [
+    {
+     "title": {
+      "es": "Elige la forma",
+      "en": "Choose the shape"
+     },
+     "opts": [
+      {
+       "n": "Gnocchi"
+      },
+      {
+       "n": "Rigatoni"
+      },
+      {
+       "n": "Ravioli"
+      }
+     ]
+    },
+    {
+     "title": {
+      "es": "Elige la salsa",
+      "en": "Choose the sauce"
+     },
+     "opts": [
+      {
+       "n": "Pesto",
+       "rec": {
+        "es": "burrata y pancetta",
+        "en": "burrata & pancetta"
+       },
+       "plus": 90
+      },
+      {
+       "n": "Spicy vodka",
+       "rec": {
+        "es": "albóndigas",
+        "en": "meatballs"
+       },
+       "plus": 55
+      },
+      {
+       "n": {
+        "es": "Trufa",
+        "en": "Truffle"
+       },
+       "rec": {
+        "es": "hongos y pancetta",
+        "en": "mushrooms & pancetta"
+       },
+       "plus": 70
+      }
+     ]
+    },
+    {
+     "title": {
+      "es": "Elige los toppings",
+      "en": "Choose your toppings"
+     },
+     "opts": [],
+     "groups": [
+      {
+       "n": {
+        "es": "Toppings premium",
+        "en": "Premium toppings"
+       },
+       "p": 55,
+       "opts": [
+        {
+         "n": {
+          "es": "Salchicha",
+          "en": "Sausage"
+         },
+         "g": "40 g"
+        },
+        {
+         "n": {
+          "es": "Albóndigas",
+          "en": "Meatballs"
+         },
+         "g": "25 g"
+        },
+        {
+         "n": "Pancetta",
+         "g": "40 g"
+        },
+        {
+         "n": {
+          "es": "Crema de burrata",
+          "en": "Burrata cream"
+         },
+         "g": "90 g"
+        }
+       ]
+      },
+      {
+       "n": {
+        "es": "Toppings",
+        "en": "Toppings"
+       },
+       "p": 30,
+       "opts": [
+        {
+         "n": {
+          "es": "Hongos al ajillo",
+          "en": "Garlic mushrooms"
+         },
+         "g": "70 g"
+        },
+        {
+         "n": {
+          "es": "Aceite de trufa",
+          "en": "Truffle oil"
+         },
+         "g": "10 g"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "extra": [
+    {
+     "n": {
+      "es": "Lasagna con burrata",
+      "en": "Burrata lasagna"
+     },
+     "d": {
+      "es": "Lasagna con burrata, pesto rojo y ragú de 8 horas",
+      "en": "Lasagna with burrata, red pesto and 8-hour ragù"
+     },
+     "p": 250,
+     "nuevo": true,
+     "img": "lasagna",
+     "land": true
+    }
+   ]
+  },
+  {
+   "id": "postres",
+   "kind": "cards",
+   "title": {
+    "es": "Postres",
+    "en": "Desserts"
+   },
+   "price": 120,
+   "items": [
+    {
+     "n": {
+      "es": "Panacotta & mango",
+      "en": "Panna cotta & mango"
+     },
+     "d": {
+      "es": "Nata premium, coulis de mango natural de Colima",
+      "en": "Premium cream, natural Colima mango coulis"
+     },
+     "nuevo": true,
+     "img": "panacotta"
+    },
+    {
+     "n": {
+      "es": "Tiramisú de pistache",
+      "en": "Pistachio tiramisu"
+     },
+     "d": {
+      "es": "Mascarpone y pistache, soletillas con espresso & amaretto, pistache triturado",
+      "en": "Pistachio mascarpone, espresso & amaretto-soaked ladyfingers, crushed pistachio"
+     }
+    },
+    {
+     "n": {
+      "es": "Panacotta & aceite de oliva",
+      "en": "Panna cotta & olive oil"
+     },
+     "d": {
+      "es": "Nata premium, aceite de oliva extra virgen D.O.P. italiano y una pizca de sal rosa del Himalaya",
+      "en": "Premium cream, Italian D.O.P. extra virgin olive oil and a pinch of Himalayan pink salt"
+     },
+     "nuevo": true
+    },
+    {
+     "n": {
+      "es": "Helado soft serve fior di latte",
+      "en": "Fior di latte soft serve"
+     },
+     "d": {
+      "es": "Con aceite de oliva D.O.P. italiano y sal rosa del Himalaya. Solo en sucursal Náder (Cancún)",
+      "en": "With Italian D.O.P. olive oil and Himalayan pink salt. Náder location (Cancún) only"
+     },
+     "nuevo": true
+    }
+   ]
+  },
+  {
+   "id": "bebidas",
+   "kind": "drinks",
+   "title": {
+    "es": "Bebidas",
+    "en": "Drinks"
+   },
+   "glass": {
+    "es": " copa",
+    "en": " glass"
+   },
+   "bottle": {
+    "es": " botella",
+    "en": " bottle"
+   },
+   "groups": [
+    {
+     "n": {
+      "es": "Spritzs & sangría",
+      "en": "Spritzes & sangria"
+     },
+     "items": [
+      {
+       "n": "Aperol spritz",
+       "p": 180
+      },
+      {
+       "n": "Campari spritz",
+       "p": 150
+      },
+      {
+       "n": "Hugo spritz",
+       "p": 180
+      },
+      {
+       "n": "Toronja spritz",
+       "d": {
+        "es": "Toronja, prosecco y soda",
+        "en": "Grapefruit, prosecco and soda"
+       },
+       "p": 175,
+       "nuevo": true
+      },
+      {
+       "n": {
+        "es": "Sangría tinta",
+        "en": "Red sangria"
+       },
+       "p": 175
+      }
+     ]
+    },
+    {
+     "n": {
+      "es": "Bebidas suaves",
+      "en": "Soft drinks"
+     },
+     "items": [
+      {
+       "n": {
+        "es": "Cerveza",
+        "en": "Beer"
+       },
+       "d": "Heineken, Indio",
+       "p": 70
+      },
+      {
+       "n": {
+        "es": "Limonadas",
+        "en": "Lemonades"
+       },
+       "d": {
+        "es": "Limón, jamaica, mango",
+        "en": "Lime, hibiscus, mango"
+       },
+       "p": 75
+      },
+      {
+       "n": {
+        "es": "Sodas",
+        "en": "Sodas"
+       },
+       "d": "Coca-Cola, Fanta, Sprite",
+       "p": 65
+      },
+      {
+       "n": "Félix",
+       "d": {
+        "es": "Manzana, guayaba",
+        "en": "Apple, guava"
+       },
+       "p": 65
+      },
+      {
+       "n": {
+        "es": "Agua Ciel",
+        "en": "Ciel water"
+       },
+       "p": 60
+      },
+      {
+       "n": "Topo Chico",
+       "p": 70
+      }
+     ]
+    },
+    {
+     "n": {
+      "es": "Cerveza artesanal mexicana",
+      "en": "Mexican craft beer"
+     },
+     "items": [
+      {
+       "n": "Colimita",
+       "d": "Lager",
+       "p": 110
+      },
+      {
+       "n": "Piedra Lisa",
+       "d": "Session IPA",
+       "p": 115
+      },
+      {
+       "n": "Principia Espectra",
+       "d": "IPA",
+       "p": 140
+      }
+     ]
+    },
+    {
+     "n": {
+      "es": "Cocteles",
+      "en": "Cocktails"
+     },
+     "items": [
+      {
+       "n": {
+        "es": "Margarita de la casa",
+        "en": "House margarita"
+       },
+       "p": 99
+      },
+      {
+       "n": {
+        "es": "Cocteles clásicos",
+        "en": "Classic cocktails"
+       },
+       "p": 180
+      }
+     ]
+    },
+    {
+     "n": {
+      "es": "Vino mexicano · blancos",
+      "en": "Mexican wine · whites"
+     },
+     "wine": true,
+     "items": [
+      {
+       "n": "Puerto Nuevo · Sauvignon blanc",
+       "d": "Valle de Guadalupe, Baja California",
+       "p": 99,
+       "p2": 450
+      },
+      {
+       "n": "L.A. Cetto Verano · Sauvignon blanc",
+       "d": "Valle de Guadalupe, Baja California",
+       "p": 175,
+       "p2": 660
+      }
+     ]
+    },
+    {
+     "n": {
+      "es": "Vino mexicano · tintos",
+      "en": "Mexican wine · reds"
+     },
+     "wine": true,
+     "items": [
+      {
+       "n": "Puerto Nuevo · Cabernet malbec",
+       "d": "Valle de Guadalupe, Baja California",
+       "p": 99,
+       "p2": 450
+      },
+      {
+       "n": "L.A. Cetto Invierno · Petit verdot",
+       "d": "Valle de Guadalupe, Baja California",
+       "p": 175,
+       "p2": 660
+      },
+      {
+       "n": "Megacero",
+       "d": "Encinillas, Chihuahua",
+       "p": 1490
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

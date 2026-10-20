@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
 """Genera las landings por sucursal (body HTML) en build/loc-<slug>.html.
 Reutiliza el CSS ya compilado de la portada (build/papaya-slice-landing.html) para que el diseño sea idéntico.
-Los datos reales (dirección, horarios, teléfonos, links) viven en src/landing/build.py → D['branches'].
+Los datos reales (dirección, horarios, teléfonos, links y textos de cada landing) viven en contenido.json → "sucursales".
 """
 import json, re, sys, os, html, importlib.util
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.abspath(os.path.join(here, '..', '..'))
 os.chdir(root)
 
-# ---- datos de sucursales (fuente única: src/landing/build.py) ----
-spec = importlib.util.spec_from_file_location('landing_build', 'src/landing/build.py')
-src = open('src/landing/build.py', encoding='utf-8').read()
-# Ejecutamos sólo hasta la definición de D (evita regenerar la portada)
-ns = {}
-exec(src.split('\n# --- build ---')[0] if '\n# --- build ---' in src else src, ns)
-D = ns['D']; WATI = ns['WATI']
-BR = D['branches']
+# ---- datos de sucursales (fuente única: contenido.json → "sucursales" y "portada") ----
+C = json.load(open('contenido.json', encoding='utf-8'))
+D = {'dishes': C['portada']['dishes']}; WATI = C['sitio']['wati']
+BR = {k: {x: y for x, y in v.items() if x not in ('landing', 'schema')} for k, v in C['sucursales'].items()}
+
 
 DAYS_ES = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado']
 DAYS_EN = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
@@ -57,40 +54,7 @@ def hours_summary(h, es=True):
 
 e = html.escape
 
-PAGES = {
- '38': {
-  'slug': 'playa-del-carmen',
-  'h1': {'es': 'Pizza de masa madre en Playa del Carmen', 'en': 'Sourdough pizza in Playa del Carmen'},
-  'intro': {
-   'es': 'Papaya Slice Av. 38 está en la Calle 38, entre la Quinta Avenida y la Calle Flamingos, en el tramo norte de la Quinta donde Playa se vuelve más tranquila y arbolada. Rebanadas estilo Nueva York, charolas Detroit y nuestra pizza Tokyo Style, todo con masa madre de 72 horas de fermentación, a unos pasos de la playa.',
-   'en': 'Papaya Slice Av. 38 sits on Calle 38, between Quinta Avenida and Calle Flamingos, on the quieter, leafier north end of Fifth Avenue. New York slices, Detroit pans and our Tokyo Style pizza, all made with 72-hour sourdough, a short walk from the beach.'},
-  'how': {
-   'es': 'Estamos en los Locales Miranda #4. Si vienes caminando por la Quinta Avenida, da vuelta en la Calle 38 hacia la playa; si vienes en coche, la Calle 38 conecta con la Avenida 10.',
-   'en': 'We are at Locales Miranda #4. Walking along Quinta Avenida, turn onto Calle 38 towards the beach; by car, Calle 38 connects with Avenida 10.'},
-  'delivery': {
-   'es': 'Pide a domicilio en Playa del Carmen por Rappi o Uber Eats. Las pizzas completas (para 4 a 6 personas) también se pueden reservar por WhatsApp para recoger en el local.',
-   'en': 'Order delivery in Playa del Carmen on Rappi or Uber Eats. Whole pizzas (for 4 to 6 people) can also be reserved on WhatsApp for pickup.'},
-  'other': 'nader',
-  'other_txt': {'es': 'También estamos en Cancún, en la Av. Náder.', 'en': 'We are also in Cancún, on Av. Náder.'},
-  'img': '/img/a7db2fe09c.webp', 'img_alt': {'es': 'Pizza de masa madre Papaya Slice en Playa del Carmen', 'en': 'Papaya Slice sourdough pizza in Playa del Carmen'},
- },
- 'nader': {
-  'slug': 'cancun',
-  'h1': {'es': 'Pizza de masa madre en Cancún', 'en': 'Sourdough pizza in Cancún'},
-  'intro': {
-   'es': 'Papaya Slice Náder está en la Avenida Carlos Náder 44, en el centro de Cancún, a una cuadra de la Avenida Tulum. Es nuestra segunda casa: la misma masa madre de 72 horas, rebanadas estilo Nueva York, charolas Detroit y la pizza Tokyo Style, ahora para quienes viven y trabajan en el centro.',
-   'en': 'Papaya Slice Náder is at Avenida Carlos Náder 44 in downtown Cancún, one block from Avenida Tulum. It is our second home: the same 72-hour sourdough, New York slices, Detroit pans and Tokyo Style pizza, now for the people who live and work downtown.'},
-  'how': {
-   'es': 'La Avenida Náder corre paralela a la Avenida Tulum, en la zona centro. Búscanos en el número 44.',
-   'en': 'Avenida Náder runs parallel to Avenida Tulum in the downtown area. Look for number 44.'},
-  'delivery': {
-   'es': 'Pide a domicilio en Cancún por Rappi. Para pizzas completas (para 4 a 6 personas) o pedidos para recoger, escríbenos por WhatsApp.',
-   'en': 'Order delivery in Cancún on Rappi. For whole pizzas (for 4 to 6 people) or pickup orders, message us on WhatsApp.'},
-  'other': '38',
-  'other_txt': {'es': 'También estamos en Playa del Carmen, en la Calle 38.', 'en': 'We are also in Playa del Carmen, on Calle 38.'},
-  'img': '/img/9a2aa7b216.webp', 'img_alt': {'es': 'Pizza Tokyo Style de Papaya Slice en Cancún', 'en': 'Papaya Slice Tokyo Style pizza in Cancún'},
- },
-}
+PAGES = {k: v['landing'] for k, v in C['sucursales'].items()}
 
 landing = open('build/papaya-slice-landing.html', encoding='utf-8').read()
 head_lines = '\n'.join(l for l in landing.split('\n')[:12] if l.startswith('<meta') or l.startswith('<link'))
