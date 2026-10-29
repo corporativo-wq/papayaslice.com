@@ -79,8 +79,8 @@
     "img": "tk_cherry",
     "anchor": "especial",
     "kind": {
-     "es": "Especial del mes · Tokyo Style",
-     "en": "Monthly special · Tokyo Style"
+     "es": "Tokyo Style",
+     "en": "Tokyo Style"
     },
     "n": {
      "es": "Cherry & pistache",
@@ -244,7 +244,7 @@
    },
    "tel": "+52 998 174 6115",
    "maps": "https://www.google.com/maps/search/?api=1&query=Papaya%20Slice%20Nader%20Cancun&query_place_id=ChIJP8gEC1ktTI8RI6subVZflxw",
-   "wa": "https://wa.me/529981746115?text=Hola%20Papaya%20Slice%20N%C3%A1der%2C%20quiero%20reservar",
+   "wa": "https://wa.me/529841798683?text=Hola%20Papaya%20Slice%20N%C3%A1der%2C%20quiero%20reservar",
    "rappi": "https://www.rappi.com.mx/restaurantes/1930378884-papaya-slice-mx",
    "uber": null,
    "hours": {
@@ -316,12 +316,12 @@
    "id": "especial",
    "kind": "featured",
    "short": {
-    "es": "Especial del mes",
-    "en": "Monthly special"
+    "es": "Tokyo Style",
+    "en": "Tokyo Style"
    },
    "eyebrow": {
-    "es": "Especial del mes · Agosto",
-    "en": "Monthly special · August"
+    "es": "Tokyo Style · Nuevo y permanente",
+    "en": "Tokyo Style · New & here to stay"
    },
    "title": "Tokyo Style",
    "sub": {

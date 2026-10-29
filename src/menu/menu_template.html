@@ -258,7 +258,7 @@ function featured(sec){
     </div>
     ${wave('#FFFFFF')}
   </div>
-  <div class="marquee" tabindex="0"><div class="track">${Array(8).fill(0).map((x,k)=>`<span ${k?'aria-hidden="true"':''} translate="no">Papaya Slice<i>·</i>${lang==='es'?'Especial del mes':'Monthly special'}<i>·</i></span>`).join('')}</div></div>
+  <div class="marquee" tabindex="0"><div class="track">${Array(8).fill(0).map((x,k)=>`<span ${k?'aria-hidden="true"':''} translate="no">Papaya Slice<i>·</i>Tokyo Style<i>·</i></span>`).join('')}</div></div>
   <div class="wrap content">
     <div class="heroes">${sec.items.map(i=>card(i)).join('')}</div>
     <p class="desc" style="margin-top:22px">${esc(t(sec.note))}</p>
