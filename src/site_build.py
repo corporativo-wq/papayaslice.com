@@ -177,6 +177,56 @@ def responsive_hero(path):
     h2=re.sub(r'<img[^>]*fetchpriority="high"[^>]*>',fix,h)
     if h2!=h: open(path,'w',encoding='utf-8').write(h2)
 for _p in ('index.html','playa-del-carmen.html'): responsive_hero(_p)
+# ---- resto de fotos de la portada: WebP con srcset, width/height y lazy debajo del primer pantallazo ----
+# Anchos medidos en pantalla (celular 390 px / escritorio 1372 px), por foto original.
+PORTADA_SIZES={'da6e6e826c.png':(52,52),'9637a14a2b.png':(368,624),'9a2aa7b216.webp':(354,406),
+  '6dd7297540.jpg':(390,457),'ae9c3f46c1.jpg':(390,457),'82de2b8ad0.jpg':(390,457),'ae8d7c9255.png':(354,362)}
+ARRIBA={'da6e6e826c.png','9637a14a2b.png'}
+SIN_WH={'9a2aa7b216.webp'}  # su CSS la muestra cuadrada: width/height cambiarían el alto  # visibles al cargar en celular: sin lazy
+def webp_set(name,max_css):
+    """Variantes WebP del original para cubrir hasta 3x el ancho mostrado. Devuelve [(ruta, ancho)]."""
+    base,ext=name.rsplit('.',1); im=Image.open('img/'+name); W,H=im.size
+    alpha=im.mode in ('RGBA','LA','P')
+    need=min(W,max_css*3)
+    ws=sorted({w for w in (120,240,480,800,1200) if w<need}|{need})
+    out=[]
+    for w in ws:
+        fn=f'img/{base}-{w}w.webp'
+        if not os.path.exists(fn):
+            r=(im.convert('RGBA') if alpha else im.convert('RGB')).resize((w,round(H*w/W)),Image.LANCZOS)
+            r.save(fn,'WEBP',quality=(85 if alpha else 72),method=6)
+        out.append((fn,w))
+    return out,W,H
+def portada_imgs(path):
+    h=open(path,encoding='utf-8').read()
+    def fix(m):
+        tag=m.group(0)
+        if 'srcset=' in tag: return tag
+        sm=re.search(r'src="/img/([0-9a-f]+\.(?:png|jpg|jpeg|webp))"',tag)
+        if not sm or sm.group(1) not in PORTADA_SIZES: return tag
+        name=sm.group(1); mob,desk=PORTADA_SIZES[name]
+        vs,W,H=webp_set(name,max(mob,desk))
+        sizes='100vw' if mob>=390 and desk>=1000 else (f'(min-width: 900px) {desk}px, 100vw' if mob>=390 else f'(min-width: 900px) {desk}px, {mob}px')
+        mid=vs[min(1,len(vs)-1)][0]
+        new=f'src="/{mid}" srcset="'+', '.join(f'/{f} {w}w' for f,w in vs)+f'" sizes="{sizes}"'
+        tag=tag.replace(sm.group(0),new)
+        if 'width=' not in tag and name not in SIN_WH: tag=tag.replace('<img ',f'<img width="{W}" height="{H}" ',1)
+        if name not in ARRIBA:
+            if 'loading=' not in tag: tag=tag.replace('<img ','<img loading="lazy" ',1)
+            if 'decoding=' not in tag: tag=tag.replace('<img ','<img decoding="async" ',1)
+        return tag
+    h2=re.sub(r'<img [^>]*>',fix,h)
+    # fotos de platillos pintadas con JavaScript (mapa IMG): WebP de hasta 800 px (se muestran a 240-324 px)
+    def fixmap(m):
+        d=json.loads(m.group(1))
+        for k,v in d.items():
+            name=v.rsplit('/',1)[1]
+            if name.endswith('.jpg') or name.endswith('.png'):
+                vs,W,H=webp_set(name,267); d[k]='/'+vs[-1][0]
+        return 'const IMG = '+json.dumps(d)
+    h2=re.sub(r'const IMG = (\{[^}]*\})',fixmap,h2,count=1)
+    if h2!=h: open(path,'w',encoding='utf-8').write(h2)
+portada_imgs('index.html')
 print(len(seen),'imágenes', sum(os.path.getsize('./'+f) for f in seen.values())//1024,'KB')
 
 # ---- recomprimir imágenes del sitio (ligeras para móvil) ----
