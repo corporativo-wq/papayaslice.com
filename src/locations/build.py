@@ -57,9 +57,15 @@ e = html.escape
 PAGES = {k: v['landing'] for k, v in C['sucursales'].items()}
 
 landing = open('build/papaya-slice-landing.html', encoding='utf-8').read()
-head_lines = '\n'.join(l for l in landing.split('\n')[:12] if l.startswith('<meta') or l.startswith('<link'))
-style = landing[landing.find('<style>'):landing.find('</style>')+8]
+head_lines = '\n'.join(l for l in landing.split('\n')[:14] if l.startswith('<meta') or l.startswith('<link') or l.startswith('<style>@font-face'))
+_i = landing.find('<style>\n') if '<style>\n' in landing else [m.start() for m in re.finditer('<style>', landing) if not landing.startswith('<style>@font-face', m.start())][0]
+style = landing[_i:landing.find('</style>', _i)+8]
 EXTRA_CSS = '''<style>
+.guia p{max-width:62ch;margin:12px 0 0;font-size:17px;line-height:1.55}
+.mapcard{margin-top:14px;border-radius:14px;overflow:hidden;border:2px solid var(--ink);background:#FFF6EC}
+.mapcard .mapph{display:flex;align-items:center;gap:12px;padding:18px;font-weight:600;background:repeating-linear-gradient(45deg,#FFE7D6 0 12px,#FFF6EC 12px 24px)}
+.mapcard .mapbtns{display:flex;flex-wrap:wrap;gap:10px;padding:14px}
+.mapcard iframe{display:block;width:100%;height:300px;border:0}
 [hidden]{display:none!important}
 .lhero{padding:44px 0 36px;background:var(--cream)}
 .lhero h1{font-family:var(--wide);font-weight:400;font-size:clamp(34px,9vw,84px);line-height:.98;letter-spacing:-.01em;color:var(--ink);margin-top:8px}
@@ -106,6 +112,30 @@ def page(key):
     dish_html = ''.join(
         f'<div class="dish"><span data-es style="opacity:.8;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">{e(T(d["kind"],"es"))}</span><span data-en hidden style="opacity:.8;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">{e(T(d["kind"],"en"))}</span><b data-es>{e(T(d["n"],"es"))}</b><b data-en hidden>{e(T(d["n"],"en"))}</b><span data-es>{e(T(d["d"],"es"))}</span><span data-en hidden>{e(T(d["d"],"en"))}</span><em>${d["p"]} MXN</em></div>'
         for d in dishes)
+    SV = C['sitio']['servicios']
+    park_es = b['estacionamiento']['es'] + ((' ' + b['valet']['es']) if b.get('valet', {}).get('activo') else '')
+    park_en = b['estacionamiento']['en'] + ((' ' + b['valet']['en']) if b.get('valet', {}).get('activo') else '')
+    hr_es, hr_en = hours_summary(b['hours'], True), hours_summary(b['hours'], False)
+    guia_html = ''.join(bi(g['es'], g['en'], 'p') for g in P['guia']) + bi(
+        f"Horario: {hr_es}. {park_es} {b['desde']['es']}", f"Hours: {hr_en}. {park_en} {b['desde']['en']}", 'p')
+    deliv_es = 'Sí, por Rappi' + (' y Uber Eats' if b.get('uber') else '') + '. También puedes pedir por WhatsApp para recoger en el local.'
+    deliv_en = 'Yes, on Rappi' + (' and Uber Eats' if b.get('uber') else '') + '. You can also order on WhatsApp for pickup.'
+    QA = [(('¿Cuál es el horario?','What are your hours?'), (hr_es + '.', hr_en + '.')),
+          (('¿Aceptan reservaciones?','Do you take reservations?'), (SV['reservas']['es'], SV['reservas']['en'])),
+          (('¿Tienen servicio a domicilio?','Do you deliver?'), (deliv_es, deliv_en)),
+          (('¿Puedo pedir para llevar?','Can I order takeout?'), (SV['para_llevar']['es'], SV['para_llevar']['en'])),
+          (('¿Hacen eventos, catering o pedidos grandes?','Do you do events, catering or large orders?'), (SV['eventos']['es'], SV['eventos']['en'])),
+          (('¿Hay estacionamiento?','Is there parking?'), (park_es, park_en)),
+          (('¿Cómo pido mi factura?','How do I get an invoice?'), (SV['factura']['es'], SV['factura']['en'])),
+          (('¿Tienen opciones vegetarianas?','Do you have vegetarian options?'), (SV['vegetariano']['es'], SV['vegetariano']['en'])),
+          (('¿Puedo llevar a mi mascota?','Can I bring my pet?'), (SV['mascotas']['es'], SV['mascotas']['en'])),
+          (('¿Cobran descorche?','Do you charge corkage?'), (SV['descorche']['es'], SV['descorche']['en'])),
+          (('¿Tienen promoción de cumpleaños?','Do you have a birthday deal?'), (SV['cumpleanos']['es'], SV['cumpleanos']['en'])),
+          (('¿Venden por rebanada?','Do you sell by the slice?'), ('Sí. Rebanadas estilo Nueva York y charola Detroit, además de pizzas completas para 4 a 6 personas.','Yes. New York style slices and Detroit pans, plus whole pizzas for 4 to 6 people.')),
+          (('¿Qué es la masa madre de 72 horas?','What is 72-hour sourdough?'), ('Nuestra masa fermenta tres días antes de entrar al horno. Por eso la orilla infla, cruje y se siente ligera.','Our dough ferments for three days before it meets the oven. That is why the crust puffs, crackles and feels light.'))]
+    faq_html = '\n'.join(f"    <details><summary>{bi(q[0], q[1])}</summary>{bi(a[0], a[1], 'p')}</details>" for q, a in QA)
+    from urllib.parse import quote
+    map_embed = 'https://www.google.com/maps?q=' + quote('Papaya Slice, ' + C['sucursales'][key]['schema']['calle_ld'] + ', ' + C['sucursales'][key]['schema']['cp'] + ' ' + C['sucursales'][key]['schema']['localidad']) + '&output=embed'
     uber = f'<a class="btn white" data-ev="order_uber" data-branch="{slug}" href="{b["uber"]}" target="_blank" rel="noopener">Uber Eats</a>' if b.get('uber') else ''
     body = f'''<title>Papaya Slice · {e(b['city'])}</title>
 {head_lines}
@@ -131,7 +161,7 @@ def page(key):
   <div class="wrap">
     <p class="crumbs"><a href="/">Papaya Slice</a> › {e(b['city'])} · {e(b['name'])}</p>
     <span class="eyebrow" style="color:var(--coral-ink)">{e(b['label']['es'])}</span>
-    <h1 data-es>{P['h1']['es']}</h1><h1 data-en hidden>{P['h1']['en']}</h1>
+    <h1><span data-es>{P['h1']['es']}</span><span data-en hidden>{P['h1']['en']}</span></h1>
     <p class="sub" data-es>{P['intro']['es']}</p><p class="sub" data-en hidden>{P['intro']['en']}</p>
     <div class="cta">
       <a class="btn turq" data-ev="como_llegar" data-branch="{slug}" href="{b['maps']}" target="_blank" rel="noopener"><span data-es>Cómo llegar</span><span data-en hidden>Directions</span></a>
@@ -139,6 +169,14 @@ def page(key):
       <a class="btn ghost" data-ev="menu_nav" data-branch="{slug}" href="/menu" style="border-color:var(--ink);color:var(--ink)"><span data-es>Ver menú</span><span data-en hidden>See menu</span></a>
     </div>
     <div class="lphoto"><img src="{P['img']}" alt="{e(P['img_alt']['es'])}" fetchpriority="high"></div>
+  </div>
+</section>
+
+<section class="field white" id="guia">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--coral-ink)">{bi('Antes de venir','Before you come')}</span>
+    <h2 class="disp">{bi('Qué esperar en Papaya Slice '+e(b['name']),'What to expect at Papaya Slice '+e(b['name']))}</h2>
+    <div class="guia">{guia_html}</div>
   </div>
 </section>
 
@@ -152,7 +190,10 @@ def page(key):
         <p><address style="font-style:normal" data-es>{e(b['addr']['es'])}, Quintana Roo</address><address style="font-style:normal" data-en hidden>{e(b['addr']['en'])}, Quintana Roo</address></p>
         <p data-es>{P['how']['es']}</p><p data-en hidden>{P['how']['en']}</p>
         <p><a data-ev="phone" data-branch="{slug}" href="{tel_href}">{e(b['tel'])}</a></p>
-        <p><a data-ev="como_llegar" data-branch="{slug}" href="{b['maps']}" target="_blank" rel="noopener">{bi('Abrir en Google Maps','Open in Google Maps')}</a></p>
+        <div class="mapcard" data-embed="{map_embed}">
+          <div class="mapph" aria-hidden="true"><svg width="34" height="44" viewBox="0 0 34 44"><path d="M17 0C7.6 0 0 7.4 0 16.6 0 29 17 44 17 44s17-15 17-27.4C34 7.4 26.4 0 17 0z" fill="#F07A45"/><circle cx="17" cy="16.5" r="6.5" fill="#fff"/></svg><span>{e(b['addr']['es'])}</span></div>
+          <div class="mapbtns"><button type="button" class="btn ghost mapopen" style="border-color:var(--ink);color:var(--ink)">{bi('Ver el mapa','Show map')}</button><a class="btn turq" data-ev="como_llegar" data-branch="{slug}" href="{b['maps']}" target="_blank" rel="noopener">{bi('Cómo llegar en Google Maps','Directions in Google Maps')}</a></div>
+        </div>
       </div>
       <div class="card">
         <h3>{bi('Horario','Hours')}</h3>
@@ -193,10 +234,7 @@ def page(key):
   <div class="wrap">
     <span class="eyebrow">{bi('Antes de venir','Before you come')}</span>
     <h2 class="disp">{bi('Preguntas frecuentes','FAQ')}</h2>
-    <details><summary>{bi('¿Necesito reservar?','Do I need a reservation?')}</summary>{bi('Para mesas de pocas personas normalmente no. Para grupos, cumpleaños o eventos, escríbenos por WhatsApp y te confirmamos.','Small tables usually do not need one. For groups, birthdays or events, message us on WhatsApp and we will confirm.','p')}</details>
-    <details><summary>{bi('¿Venden por rebanada?','Do you sell by the slice?')}</summary>{bi('Sí. Rebanadas estilo Nueva York y charola Detroit, además de pizzas completas para 4 a 6 personas.','Yes. New York style slices and Detroit pans, plus whole pizzas for 4 to 6 people.','p')}</details>
-    <details><summary>{bi('¿Qué es la masa madre de 72 horas?','What is 72-hour sourdough?')}</summary>{bi('Nuestra masa fermenta tres días antes de entrar al horno. Por eso la orilla infla, cruje y se siente ligera.','Our dough ferments for three days before it meets the oven. That is why the crust puffs, crackles and feels light.','p')}</details>
-    <details><summary>{bi('¿Hay servicio a domicilio?','Do you deliver?')}</summary>{bi(P['delivery']['es'], P['delivery']['en'],'p')}</details>
+{faq_html}
     <details><summary>{bi('¿Tienen otra sucursal?','Do you have another location?')}</summary><p data-es>{P['other_txt']['es']} <a href="/{OP['slug']}" style="color:#fff">Ver sucursal {e(o['city'])}</a>.</p><p data-en hidden>{P['other_txt']['en']} <a href="/{OP['slug']}" style="color:#fff">See {e(o['city'])} location</a>.</p></details>
   </div>
 </section>
@@ -242,6 +280,7 @@ function apply(){{ document.documentElement.lang = lang==='es'?'es-MX':'en';
   document.getElementById('lang-es').setAttribute('aria-pressed',lang==='es'); document.getElementById('lang-en').setAttribute('aria-pressed',lang==='en'); }}
 function setLang(l){{ lang=l; try{{localStorage.setItem('ps-lang',l)}}catch(e){{}} apply(); }}
 apply();
+document.querySelectorAll('.mapopen').forEach(bt=>bt.addEventListener('click',()=>{{const c=bt.closest('.mapcard');const f=document.createElement('iframe');f.src=c.dataset.embed;f.title='Mapa';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';c.querySelector('.mapph').replaceWith(f);bt.remove();}}));
 </script>
 '''
     return slug, body

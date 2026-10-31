@@ -7,24 +7,58 @@
   "search_console_meta": "V9eAQSvRRDtoa64PSJ6_y-MzPrVYQnG66pzsdlKXZsg",
   "instagram": "https://www.instagram.com/papayaslicemx",
   "menu_url": "/menu",
-  "wati": "https://wa.me/529841798683?text=Hola%20Papaya%20Slice%2C%20quiero%20reservar"
+  "wati": "https://wa.me/529841798683?text=Hola%20Papaya%20Slice%2C%20quiero%20reservar",
+  "servicios": {
+   "reservas": {
+    "es": "Sí, por WhatsApp al +52 984 179 8683. Para grupos grandes, con un día de anticipación.",
+    "en": "Yes, on WhatsApp at +52 984 179 8683. For large groups, one day ahead."
+   },
+   "para_llevar": {
+    "es": "Sí. Pide con mínimo 30 minutos de anticipación para recoger; el empaque tiene un cargo de $25.",
+    "en": "Yes. Order at least 30 minutes ahead for pickup; packaging has a $25 charge."
+   },
+   "eventos": {
+    "es": "Sí: catering, eventos grandes, pedidos grandes y reservación de toda la sucursal. Escríbenos por WhatsApp al +52 984 179 8683.",
+    "en": "Yes: catering, large events, large orders and booking the whole place. Message us on WhatsApp at +52 984 179 8683."
+   },
+   "factura": {
+    "es": "Pídela con el capitán de la sucursal donde consumiste.",
+    "en": "Ask the captain at the location where you dined."
+   },
+   "vegetariano": {
+    "es": "Sí: la Margarita, la focaccia Veggie mix (aguacate, arúgula y pesto rojo) y la rebanada de cebolla caramelizada y pistache.",
+    "en": "Yes: the Margherita, the Veggie mix focaccia (avocado, arugula and red pesto) and the caramelized onion & pistachio slice."
+   },
+   "mascotas": {
+    "es": "¡Claro! Somos pet friendly: perros, gatos, mapaches, coatís, zorros, tortugas y hasta monos. Tigres y leones, no.",
+    "en": "Of course! We are pet friendly: dogs, cats, raccoons, coatis, foxes, turtles and even monkeys. No tigers or lions."
+   },
+   "descorche": {
+    "es": "Sí, el descorche cuesta $350.",
+    "en": "Yes, corkage is $350 MXN."
+   },
+   "cumpleanos": {
+    "es": "Si celebras con un grupo de más de 5 personas, el cumpleañero come gratis.",
+    "en": "If you celebrate with a group of more than 5 people, the birthday person eats free."
+   }
+  }
  },
  "seo": {
   "inicio": {
    "title": "Papaya Slice · Pizza de masa madre en Playa del Carmen y Cancún",
-   "description": "Pizzería en Playa del Carmen (Calle 38) y Cancún (Av. Náder). Rebanadas estilo NY y Detroit, pizzas completas, focaccias de masa madre de 72 h y spritz. Reserva por WhatsApp o pide por Rappi y Uber Eats."
+   "description": "Pizza de masa madre de 72 h en Playa del Carmen (Calle 38) y Cancún (Av. Náder): rebanadas NY y Detroit, Tokyo Style y focaccias. Reserva por WhatsApp."
   },
   "menu": {
-   "title": "Menú y precios · Papaya Slice",
-   "description": "Menú completo de Papaya Slice con precios en MXN: rebanadas NY y Detroit, pizzas completas, focaccias de masa madre, pastas, postres, cerveza artesanal y spritz. Playa del Carmen y Cancún."
+   "title": "Menú y precios | Papaya Slice Playa del Carmen y Cancún",
+   "description": "Menú de Papaya Slice con precios en MXN: Tokyo Style, rebanadas NY y Detroit, pizzas completas, focaccias de masa madre, pastas y spritz."
   },
   "38": {
-   "title": "Pizzería en Playa del Carmen · Papaya Slice Calle 38",
-   "description": "Papaya Slice en Playa del Carmen: pizza de masa madre de 72 h por rebanada o completa en Calle 38 entre 5a Av. y Flamingos. Horario, cómo llegar, WhatsApp, Rappi y Uber Eats."
+   "title": "Papaya Slice Playa del Carmen · Pizzería en la Calle 38",
+   "description": "Pizza de masa madre de 72 h por rebanada o completa en la Calle 38, Playa del Carmen. Horario, cómo llegar, estacionamiento, WhatsApp, Rappi y Uber Eats."
   },
   "nader": {
-   "title": "Pizzería en Cancún centro · Papaya Slice Av. Náder",
-   "description": "Papaya Slice en Cancún: pizza de masa madre de 72 h por rebanada o completa en Av. Carlos Náder 44, Centro. Horario, cómo llegar, WhatsApp y Rappi."
+   "title": "Pizza en Cancún · Papaya Slice en la Av. Náder",
+   "description": "Pizzería en la Av. Náder de Cancún: pizza de masa madre de 72 h, Tokyo Style y focaccias. Horario, cómo llegar, estacionamiento, WhatsApp y Rappi."
   }
  },
  "portada": {
@@ -192,8 +226,8 @@
    "landing": {
     "slug": "playa-del-carmen",
     "h1": {
-     "es": "Pizza de masa madre en Playa del Carmen",
-     "en": "Sourdough pizza in Playa del Carmen"
+     "es": "Papaya Slice Playa del Carmen: pizza de masa madre en la Calle 38",
+     "en": "Papaya Slice Playa del Carmen: sourdough pizza on Calle 38"
     },
     "intro": {
      "es": "Papaya Slice Av. 38 está en la Calle 38, entre la Quinta Avenida y la Calle Flamingos, en el tramo norte de la Quinta donde Playa se vuelve más tranquila y arbolada. Rebanadas estilo Nueva York, charolas Detroit y nuestra pizza Tokyo Style, todo con masa madre de 72 horas de fermentación, a unos pasos de la playa.",
@@ -216,7 +250,17 @@
     "img_alt": {
      "es": "Pizza de masa madre Papaya Slice en Playa del Carmen",
      "en": "Papaya Slice sourdough pizza in Playa del Carmen"
-    }
+    },
+    "guia": [
+     {
+      "es": "La estrella es el Tokyo Style: pizza individual de masa madre con orilla alta y aireada, en sabores como cherry y pistache, tartufata con miel o salchicha italiana con pesto y burrata. También hay rebanadas estilo Nueva York y charola Detroit, pizzas completas para 4 a 6 personas, focaccias de masa madre, pastas frescas, ensaladas, postres, cerveza artesanal mexicana y spritz.",
+      "en": "The star is Tokyo Style: an individual sourdough pizza with a tall, airy crust, in flavors like cherry & pistachio, tartufata with honey or Italian sausage with pesto and burrata. There are also New York slices and Detroit pans, whole pizzas for 4 to 6 people, sourdough focaccias, fresh pasta, salads, desserts, Mexican craft beer and spritz."
+     },
+     {
+      "es": "Funciona igual para una rebanada rápida a mediodía que para una cena con amigos o en familia, a unos pasos de la Quinta Avenida. Si vienes en grupo grande, reserva por WhatsApp con un día de anticipación. También hacemos pedidos grandes, catering y eventos, y puedes reservar toda la sucursal.",
+      "en": "It works just as well for a quick slice at lunchtime as for dinner with friends or family, a few steps from Fifth Avenue. Coming with a big group? Book on WhatsApp a day ahead. We also do large orders, catering and events, and you can book the whole place."
+     }
+    ]
    },
    "schema": {
     "ld_id": "av38",
@@ -228,6 +272,14 @@
      "lat": 20.6345583,
      "lng": -87.0643145
     }
+   },
+   "estacionamiento": {
+    "es": "Hay mucho estacionamiento en la calle, con parquímetro.",
+    "en": "There is plenty of street parking, with parking meters."
+   },
+   "desde": {
+    "es": "Desde octubre de 2023 en la Calle 38 de Playa del Carmen.",
+    "en": "On Calle 38 in Playa del Carmen since October 2023."
    }
   },
   "nader": {
@@ -239,8 +291,8 @@
     "en": "Cancún · Av. Náder"
    },
    "addr": {
-    "es": "Av. Carlos Náder 44, Centro, Cancún",
-    "en": "Av. Carlos Náder 44, Centro, Cancún"
+    "es": "Av. Carlos Náder 44, Cancún",
+    "en": "Av. Carlos Náder 44, Cancún"
    },
    "tel": "+52 998 174 6115",
    "maps": "https://www.google.com/maps/search/?api=1&query=Papaya%20Slice%20Nader%20Cancun&query_place_id=ChIJP8gEC1ktTI8RI6subVZflxw",
@@ -272,8 +324,8 @@
    "landing": {
     "slug": "cancun",
     "h1": {
-     "es": "Pizza de masa madre en Cancún",
-     "en": "Sourdough pizza in Cancún"
+     "es": "Pizza en Cancún, en la Av. Náder",
+     "en": "Pizza in Cancún, on Av. Náder"
     },
     "intro": {
      "es": "Papaya Slice Náder está en la Avenida Carlos Náder 44, en el centro de Cancún, a una cuadra de la Avenida Tulum. Es nuestra segunda casa: la misma masa madre de 72 horas, rebanadas estilo Nueva York, charolas Detroit y la pizza Tokyo Style, ahora para quienes viven y trabajan en el centro.",
@@ -296,18 +348,41 @@
     "img_alt": {
      "es": "Pizza Tokyo Style de Papaya Slice en Cancún",
      "en": "Papaya Slice Tokyo Style pizza in Cancún"
-    }
+    },
+    "guia": [
+     {
+      "es": "La estrella es el Tokyo Style: pizza individual de masa madre con orilla alta y aireada, en sabores como cherry y pistache, tartufata con miel o salchicha italiana con pesto y burrata. También hay rebanadas estilo Nueva York y charola Detroit, pizzas completas para 4 a 6 personas, focaccias de masa madre, pastas frescas, ensaladas, postres, cerveza artesanal mexicana y spritz.",
+      "en": "The star is Tokyo Style: an individual sourdough pizza with a tall, airy crust, in flavors like cherry & pistachio, tartufata with honey or Italian sausage with pesto and burrata. There are also New York slices and Detroit pans, whole pizzas for 4 to 6 people, sourdough focaccias, fresh pasta, salads, desserts, Mexican craft beer and spritz."
+     },
+     {
+      "es": "La Av. Náder es una zona de restaurantes del centro de Cancún, a una cuadra de la Av. Tulum: buena para comer cerca de la oficina, cenar después del trabajo o juntarse con amigos. Si vienes en grupo grande, reserva por WhatsApp con un día de anticipación. También hacemos pedidos grandes, catering y eventos, y puedes reservar toda la sucursal.",
+      "en": "Av. Náder is a restaurant area in downtown Cancún, one block from Av. Tulum: good for lunch near the office, dinner after work or meeting friends. Coming with a big group? Book on WhatsApp a day ahead. We also do large orders, catering and events, and you can book the whole place."
+     }
+    ]
    },
    "schema": {
     "ld_id": "nader",
     "ld_name": "Papaya Slice · Náder",
-    "calle_ld": "Av. Carlos Náder 44, Centro",
+    "calle_ld": "Av. Carlos Náder 44",
     "localidad": "Cancún",
     "cp": "77750",
     "geo": {
      "lat": 21.1642827,
      "lng": -86.8236381
     }
+   },
+   "estacionamiento": {
+    "es": "Hay estacionamiento en la calle.",
+    "en": "There is street parking."
+   },
+   "valet": {
+    "activo": false,
+    "es": "También hay valet parking.",
+    "en": "Valet parking is also available."
+   },
+   "desde": {
+    "es": "En la Av. Náder de Cancún desde 2025.",
+    "en": "On Av. Náder in Cancún since 2025."
    }
   }
  },
