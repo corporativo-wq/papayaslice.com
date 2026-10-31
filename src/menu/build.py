@@ -8,3 +8,6 @@ html = open('menu_template.html').read()
 html = html.replace('__LOGOW__', imgs.pop('logo_w')).replace('__LOGO__', logo).replace('__IMGS__', json.dumps(imgs)).replace('__MENU__', json.dumps(MENU, ensure_ascii=False))
 open('../../build/papaya-slice-menu.html','w').write(html)
 print(len(html)//1024, 'KB')
+# Camino A: el menú completo queda como texto en el HTML de origen (mismo JS, ejecutado en Node)
+import subprocess
+subprocess.run(['node','ssr.js','../../build/papaya-slice-menu.html'],check=True)

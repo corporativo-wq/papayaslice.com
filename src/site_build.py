@@ -35,7 +35,40 @@ def ld_loc(r,slug,city):
     return json.dumps({"@context":"https://schema.org","@graph":[ORG,r,
       {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Papaya Slice","item":D+"/"},{"@type":"ListItem","position":2,"name":city,"item":D+"/"+slug}]}]},ensure_ascii=False)
 LD_38=ld_loc(R38,"playa-del-carmen","Playa del Carmen"); LD_NA=ld_loc(RNA,"cancun","Cancún")
-LD_MENU=json.dumps({"@context":"https://schema.org","@type":"Menu","@id":D+"/menu/#menu","name":"Menú Papaya Slice","url":D+"/menu","inLanguage":"es-MX","hasMenuSection":[{"@type":"MenuSection","name":(m.get("short") or m["title"])["es"]} for m in C["menu"]]},ensure_ascii=False)
+def _es(x):
+    return (x.get('es') or x.get('en') or '') if isinstance(x,dict) else (x or '')
+def _offer(p,name=None):
+    o={"@type":"Offer","price":str(p),"priceCurrency":"MXN"}
+    if name: o["name"]=name
+    return o
+def _item(it,sec_price=None,glass=None,bottle=None):
+    m={"@type":"MenuItem","name":_es(it['n'])}
+    if it.get('d'): m["description"]=_es(it['d'])
+    p=it.get('p', sec_price)
+    if it.get('p2') is not None:
+        m["offers"]=[_offer(p,_es(glass).strip() or None),_offer(it['p2'],_es(bottle).strip() or None)]
+    elif p is not None:
+        m["offers"]=_offer(p)
+    return m
+def _sections(menu):
+    out=[]
+    for sec in menu:
+        name=_es(sec.get('short') or sec['title']); items=[]
+        sp=sec.get('price')
+        for it in sec.get('items',[]): items.append(_item(it,sp))
+        if sec['kind']=='pasta':
+            forms=', '.join(_es(o['n']) for o in sec['steps'][0]['opts'])
+            sauces=', '.join(_es(o['n']) for o in sec['steps'][1]['opts'])
+            items.append({"@type":"MenuItem","name":"Pasta fresca ("+forms+")","description":"Salsas: "+sauces,"offers":_offer(sp)})
+            for it in sec.get('extra',[]): items.append(_item(it,sp))
+        for g in sec.get('groups',[]):
+            for it in g['items']: items.append(_item(it,None,sec.get('glass'),sec.get('bottle')))
+        if sec.get('pills'):
+            for o in sec['pills']['opts']: items.append(_item({'n':o['n'],'p':sec['pills']['p']}))
+        out.append({"@type":"MenuSection","name":name,"hasMenuItem":items})
+    return out
+# Menú completo para Google y las IAs: cada platillo como MenuItem, generado de los MISMOS datos que el menú visible
+LD_MENU=json.dumps({"@context":"https://schema.org","@type":"Menu","@id":D+"/menu/#menu","name":"Menú de Papaya Slice","url":D+"/menu","inLanguage":"es-MX","hasMenuSection":_sections(C["menu"])},ensure_ascii=False)
 # Eventos de conversión: cada clic en un elemento con data-ev se manda a window.dataLayer (lo lee GTM/GA4 cuando se instale)
 # ev: como_llegar | whatsapp | phone | order_rappi | order_uber | menu_nav | branch_page ; branch: playa-del-carmen | cancun
 EVENTS='''<script>
@@ -50,7 +83,7 @@ PIXEL=open('src/meta_pixel.html',encoding='utf-8').read() if os.path.exists('src
 def wrap(body,title,desc,path,ld):
     body=re.sub(r'^<title>.*?</title>\n','',body)
     lines=body.split('\n'); headlines=[]; i=0
-    while i<len(lines) and (lines[i].startswith('<meta') or lines[i].startswith('<link')): headlines.append(lines[i]); i+=1
+    while i<len(lines) and (lines[i].startswith('<meta') or lines[i].startswith('<link') or lines[i].startswith('<style>@font-face')): headlines.append(lines[i]); i+=1
     rest='\n'.join(lines[i:])
     head=f'''<!doctype html>
 <html lang="es-MX">
@@ -92,8 +125,6 @@ if not os.path.exists('favicon.png'): icon(192,18).save('favicon.png')
 if not os.path.exists('apple-touch-icon.png'): icon(180,16).convert('RGB').save('apple-touch-icon.png')
 if not os.path.exists('og.jpg'):
   og=Image.new('RGB',(1200,630),(240,122,69)); lw=Image.open(io.BytesIO(base64.b64decode(imgs['logo_w'].split(',')[1]))).convert('RGBA'); lw.thumbnail((900,480)); og.paste(lw,((1200-lw.width)//2,(630-lw.height)//2),lw); og.save('og.jpg',quality=88)
-open('robots.txt','w').write('User-agent: *\nAllow: /\nSitemap: https://papayaslice.com/sitemap.xml\n')
-open('sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n<url><loc>https://papayaslice.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n<url><loc>https://papayaslice.com/menu</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>\n<url><loc>https://papayaslice.com/playa-del-carmen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n<url><loc>https://papayaslice.com/cancun</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>\n<url><loc>https://papayaslice.com/privacidad</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>\n</urlset>\n')
 open('CNAME','w').write('papayaslice.com\n')
 open('404.html','w').write('<!doctype html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/"><title>Papaya Slice</title></head><body></body></html>')
 for f in ['_redirects','_headers']:
@@ -117,6 +148,35 @@ def ext_images(path):
     h2=re.sub(r'data:image/(png|jpeg|webp);base64,([A-Za-z0-9+/=]+)',rep,h)
     open(path,'w').write(h2); print(path,len(h)//1024,'KB ->',len(h2)//1024,'KB')
 ext_images('index.html'); ext_images('menu.html'); ext_images('playa-del-carmen.html'); ext_images('cancun.html')
+# ---- foto principal responsive (LCP): variantes 480/800/1200 ≤120 KB, srcset y fetchpriority ----
+HERO_W=(480,800,1200)
+def hero_variants(src):
+    base=src[len('/img/'):].rsplit('.',1)[0]; im=None; out=[]
+    for w in HERO_W:
+        fn=f'img/{base}-{w}.webp'
+        if not os.path.exists(fn):
+            if im is None: im=Image.open(src.lstrip('/')).convert('RGB')
+            r=im.resize((w,round(im.height*w/im.width)),Image.LANCZOS)
+            for q in (72,66,60,55,50,45):
+                b=io.BytesIO(); r.save(b,'WEBP',quality=q,method=6,sharp_yuv=True)
+                if len(b.getvalue())<=120*1024: break
+            open(fn,'wb').write(b.getvalue())
+        out.append((fn,w))
+    return out
+def responsive_hero(path):
+    h=open(path,encoding='utf-8').read()
+    def fix(m):
+        tag=m.group(0); src=re.search(r'src="(/img/[0-9a-f]+\.webp)"',tag)
+        if not src: return tag
+        im=Image.open(src.group(1).lstrip('/'))
+        if im.width<=1200: return tag
+        v=hero_variants(src.group(1)); W,H=v[-1][1],round(im.height*v[-1][1]/im.width)
+        srcset=', '.join(f'/{f} {w}w' for f,w in v)
+        tag=tag.replace(src.group(0),f'src="/{v[1][0]}" srcset="{srcset}" sizes="100vw" width="{W}" height="{H}"')
+        return tag
+    h2=re.sub(r'<img[^>]*fetchpriority="high"[^>]*>',fix,h)
+    if h2!=h: open(path,'w',encoding='utf-8').write(h2)
+for _p in ('index.html','playa-del-carmen.html'): responsive_hero(_p)
 print(len(seen),'imágenes', sum(os.path.getsize('./'+f) for f in seen.values())//1024,'KB')
 
 # ---- recomprimir imágenes del sitio (ligeras para móvil) ----
@@ -130,3 +190,44 @@ for p in sorted(NUEVAS):
         else: continue
         if len(b.getvalue())<s0: open(p,'wb').write(b.getvalue())
     except Exception as e: print('skip',f,e)
+
+# ---- robots.txt: política del Estándar SEO GMBH 2.0, punto 13 (igual que Mu) ----
+open('robots.txt','w').write("""# papayaslice.com — política de rastreo (Estándar SEO GMBH 2.0, punto 13)
+# Búsqueda: permitidos
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Applebot
+Allow: /
+
+# Entrenamiento de modelos: permitidos
+User-agent: Google-Extended
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+
+# Resto de agentes
+User-agent: *
+Allow: /
+
+Sitemap: https://papayaslice.com/sitemap.xml
+""")
+
+# ---- sitemap.xml con lastmod real: la fecha solo cambia cuando cambia la página (src/lastmod.json) ----
+import datetime
+SM=[('/','index.html','weekly','1.0'),('/menu','menu.html','weekly','0.9'),('/playa-del-carmen','playa-del-carmen.html','monthly','0.8'),('/cancun','cancun.html','monthly','0.8'),('/privacidad','privacidad.html','yearly','0.2')]
+LM_F='src/lastmod.json'
+LM=json.load(open(LM_F,encoding='utf-8')) if os.path.exists(LM_F) else {}
+hoy=datetime.date.today().isoformat()
+for url,f,_,_ in SM:
+    hsh=hashlib.sha256(open(f,'rb').read()).hexdigest()[:16]
+    if LM.get(url,{}).get('hash')!=hsh: LM[url]={'hash':hsh,'fecha':hoy}
+open(LM_F,'w',encoding='utf-8').write(json.dumps(LM,ensure_ascii=False,indent=1)+'\n')
+open('sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{D}{u}</loc><lastmod>{LM[u]["fecha"]}</lastmod><changefreq>{cf}</changefreq><priority>{pr}</priority></url>\n' for u,_,cf,pr in SM)+'</urlset>\n')

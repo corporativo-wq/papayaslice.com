@@ -1,9 +1,9 @@
 <title>Papaya Slice</title>
 <meta name="color-scheme" content="light only">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@900&family=Dela+Gothic+One&family=Outfit:wght@400;500;600;700&display=swap">
+<link rel="preload" href="/fonts/sofia-sans-extra-condensed-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/outfit-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Sofia Sans Extra Condensed';font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/sofia-sans-extra-condensed-latin-900-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Dela Gothic One';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/dela-gothic-one-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/outfit-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/outfit-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/outfit-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Outfit';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/outfit-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
 <style>
 :root{
   --coral:#F07A45; --coral-deep:#D9622F; --coral-ink:#B84E20;
@@ -52,8 +52,9 @@ button,a.btn,.bar a{touch-action:manipulation;-webkit-tap-highlight-color:transp
 .hero .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 30%}
 .hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,96,94,0) 40%,rgba(21,96,94,.55) 75%,rgba(21,96,94,.85) 100%)}
 .hero .wrap{position:relative;z-index:2;grid-row:2;padding-block:24px 30px}
-.hero h1.logo-h1{margin:0 0 6px -2%;width:min(104%,640px)}.hero h1.logo-h1 img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 0 rgba(0,0,0,.10))}
+.hero .logo-h1{margin:0 0 6px -2%;width:min(104%,640px)}.hero .logo-h1 img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 0 rgba(0,0,0,.10))}
 .hero h1 .l2{display:block;color:#FFE7D6}
+.hero h1.hl{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(24px,6.4vw,38px);line-height:.95;letter-spacing:.01em;margin:4px 0 0;max-width:20ch;color:#fff}
 .hero p{margin:14px 0 0;font-size:clamp(17px,4.6vw,22px);font-weight:500;max-width:30ch}
 .hero .cta{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
 .hero .cta .btn{flex:1 1 150px}
@@ -208,13 +209,14 @@ footer .legal{margin-top:28px;font-size:12px;opacity:.6}
 
 <main>
 <section class="hero" id="inicio">
-  <img class="photo" src="__GIRL__" alt="" fetchpriority="high">
+  <img class="photo" src="__GIRL__" alt="Rebanada de pizza de jamón ahumado y pesto de pistache con un spritz en Papaya Slice" fetchpriority="high">
   <div class="veil"></div>
   <span class="stamp" translate="no">Playa del Carmen · Cancún</span>
   <div class="wrap">
-    <h1 class="logo-h1" translate="no"><img src="__LOGOW__" alt="Papaya Slice" width="600" height="380" fetchpriority="high"></h1>
-    <p data-es>Pizza de masa madre, 72 horas de fermentación. Por rebanada o completa. Estilo NY, Detroit y Tokyo.</p>
-    <p data-en hidden>Sourdough pizza, 72-hour fermentation. By the slice or whole. NY, Detroit and Tokyo style.</p>
+    <div class="logo-h1" translate="no"><img src="__LOGOW__" alt="Papaya Slice" width="600" height="380" fetchpriority="high"></div>
+    <h1 class="hl"><span data-es>Pizza de masa madre en Playa del Carmen y Cancún</span><span data-en hidden>Sourdough pizza in Playa del Carmen and Cancún</span></h1>
+    <p data-es>72 horas de fermentación. Por rebanada o completa. Estilo NY, Detroit y Tokyo.</p>
+    <p data-en hidden>72-hour fermentation. By the slice or whole. NY, Detroit and Tokyo style.</p>
     <div class="cta">
       <a class="btn coral" href="#pedir"><span data-es>Pedir</span><span data-en hidden>Order</span></a>
       <a class="btn white" href="__WATI__" target="_blank" rel="noopener"><span data-es>Reservar</span><span data-en hidden>Reserve</span></a>
@@ -270,7 +272,9 @@ footer .legal{margin-top:28px;font-size:12px;opacity:.6}
     <div class="story">
       <div>
         <p class="rv" data-es>Nuestra masa madre fermenta tres días antes de tocar el horno. Por eso la orilla infla, cruje y se siente ligera. La servimos como en Nueva York, en charola como en Detroit, y en nuestra nueva era Tokyo Style.</p>
+        <p class="rv" data-es>Desde octubre de 2023 en la Calle 38 de Playa del Carmen, y en la Av. Náder de Cancún desde 2025.</p>
         <p class="rv" data-en hidden>Our sourdough ferments for three days before it meets the oven. That's why the crust puffs, crackles and feels light. We serve it New York style, pan-baked Detroit style, and in our new era: Tokyo Style.</p>
+        <p class="rv" data-en hidden>We opened in October 2023 on Calle 38 in Playa del Carmen, and since 2025 you can also find us on Av. Náder in Cancún.</p>
         <div class="facts rv">
           <span data-es>Masa madre</span><span data-en hidden>Sourdough</span>
           <span data-es>72 h de fermentación</span><span data-en hidden>72-hour fermentation</span>
