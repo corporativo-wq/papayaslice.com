@@ -217,16 +217,30 @@ def portada_imgs(path):
         return tag
     h2=re.sub(r'<img [^>]*>',fix,h)
     # fotos de platillos pintadas con JavaScript (mapa IMG): WebP de hasta 800 px (se muestran a 240-324 px)
+    SETS={}
     def fixmap(m):
         d=json.loads(m.group(1))
         for k,v in d.items():
             name=v.rsplit('/',1)[1]
             if name.endswith('.jpg') or name.endswith('.png'):
                 vs,W,H=webp_set(name,267); d[k]='/'+vs[-1][0]
+                # srcset: se muestran a 240 px (celular) y 324 px (escritorio)
+                SETS[k]=', '.join(f'/{f} {w}w' for f,w in vs if w>=240)
         return 'const IMG = '+json.dumps(d)
     h2=re.sub(r'const IMG = (\{[^}]*\})',fixmap,h2,count=1)
+    h2=h2.replace('const IMGS = {};','const IMGS = '+json.dumps(SETS)+';',1)
     if h2!=h: open(path,'w',encoding='utf-8').write(h2)
 portada_imgs('index.html')
+# ---- fuentes: precargar solo las 2 críticas de cada página (título del hero + texto visible al cargar) ----
+F_SOFIA='/fonts/sofia-sans-extra-condensed-latin-900-normal.woff2'; F_DELA='/fonts/dela-gothic-one-latin-400-normal.woff2'
+F_O400='/fonts/outfit-latin-400-normal.woff2'; F_O600='/fonts/outfit-latin-600-normal.woff2'
+PRELOAD={'index.html':(F_SOFIA,F_O600),'menu.html':(F_DELA,F_O600),'playa-del-carmen.html':(F_DELA,F_O600),'cancun.html':(F_DELA,F_O600),'privacidad.html':(F_SOFIA,F_O400)}
+for _p,_fs in PRELOAD.items():
+    _h=open(_p,encoding='utf-8').read()
+    _h=re.sub(r'<link rel="preload" href="/fonts/[^"]+" as="font" type="font/woff2" crossorigin>\n?','',_h)
+    _pre=''.join(f'<link rel="preload" href="{f}" as="font" type="font/woff2" crossorigin>\n' for f in _fs)
+    _h=_h.replace('<style>@font-face',_pre+'<style>@font-face',1)
+    open(_p,'w',encoding='utf-8').write(_h)
 print(len(seen),'imágenes', sum(os.path.getsize('./'+f) for f in seen.values())//1024,'KB')
 
 # ---- recomprimir imágenes del sitio (ligeras para móvil) ----

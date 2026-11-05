@@ -338,6 +338,7 @@ footer .legal{margin-top:28px;font-size:12px;opacity:.6}
 
 <script>
 const IMG = __IMGS__;
+const IMGS = {};  // srcset de las fotos de platillos (lo llena el build)
 const D = __DATA__;
 let lang='es';
 try{ const q=new URLSearchParams(location.search).get('lang'); if(q==='en'||q==='es') lang=q; else { const s=localStorage.getItem('ps-lang'); if(s==='en'||s==='es') lang=s; } }catch(e){}
@@ -353,7 +354,7 @@ function render(){
   document.getElementById('lang-en').setAttribute('aria-pressed',lang==='en');
   const mq=(id,items)=>document.getElementById(id).innerHTML=Array(6).fill(0).map((x,k)=>`<span ${k?'aria-hidden="true"':''}>${items.map(i=>esc(t(i))).join('<i>·</i>')}<i>·</i></span>`).join('');
   mq('mq1',D.mq1); mq('mq2',D.mq2);
-  document.getElementById('rail').innerHTML=D.dishes.map(d=>`<a class="dish rv" href="${D.menuUrl}#${d.anchor}"><img src="${IMG[d.img]}" class="${d.cover?'cover':''}" alt="${esc(t(d.n))}" loading="lazy"><span class="kind">${esc(t(d.kind))}</span><div class="row"><h3>${esc(t(d.n))}</h3><span class="price">$${d.p}</span></div><p>${esc(t(d.d))}</p></a>`).join('');
+  document.getElementById('rail').innerHTML=D.dishes.map(d=>`<a class="dish rv" href="${D.menuUrl}#${d.anchor}"><img src="${IMG[d.img]}"${IMGS[d.img]?` srcset="${IMGS[d.img]}" sizes="(min-width: 900px) 324px, 240px"`:''} class="${d.cover?'cover':''}" alt="${esc(t(d.n))}" loading="lazy"><span class="kind">${esc(t(d.kind))}</span><div class="row"><h3>${esc(t(d.n))}</h3><span class="price">$${d.p}</span></div><p>${esc(t(d.d))}</p></a>`).join('');
   const b=D.branches[branch];
   document.getElementById('channels').innerHTML=`
     <a class="chan rv" href="${b.rappi}" target="_blank" rel="noopener"><span><b>Rappi</b><small>${esc(t(b.label))}</small></span><span class="go">→</span></a>
